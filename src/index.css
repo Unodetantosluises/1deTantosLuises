@@ -8,6 +8,16 @@
   padding: 0;
 }
 
+html {
+  font-size: calc(100vw / 192);
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: calc(100vw / 72);
+  }
+}
+
 html,
 body,
 #root {

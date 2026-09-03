@@ -53,8 +53,8 @@
     position: absolute;
     left: var(--desktop-left);
     top: var(--desktop-top);
-    width: 180px;
-    height: 180px;
+    width: 18rem;
+    height: 18rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -67,7 +67,7 @@
 
     &:hover,
     &:focus-visible {
-      transform: translateY(-5px) scale(1.04);
+      transform: translateY(-0.5rem) scale(1.04);
       outline: none;
     }
 
@@ -78,8 +78,8 @@
 
   // ── Folder icon: single image (no hover swap) ───────────────────────────
   &__folder-icon {
-    width: 180px;
-    height: 150px;
+    width: 18rem;
+    height: 15rem;
     display: block;
     object-fit: cover;
     object-position: top center;
@@ -90,8 +90,8 @@
   // ── Folder icon: double-image wrapper (hover open/close swap) ───────────
   &__folder-icon-wrap {
     position: relative;
-    width: 180px;
-    height: 150px;
+    width: 18rem;
+    height: 15rem;
     display: block;
     flex-shrink: 0;
   }
@@ -101,8 +101,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 180px;
-    height: 150px;
+    width: 18rem;
+    height: 15rem;
     object-fit: cover;
     object-position: top center;
     image-rendering: pixelated;
@@ -132,9 +132,9 @@
 
 
   &__folder-label {
-    margin-top: 4px;
+    margin-top: 0.4rem;
     font-family: 'Pixelify Sans', cursive, sans-serif;
-    font-size: 24px;
+    font-size: 2.4rem;
     line-height: 1.2;
     text-align: center;
     font-weight: 700;
@@ -148,15 +148,15 @@
     position: absolute;
     left: 33.701%; // X: 610px (1728)
     top: 42.346%; // Y: 473px (1117)
-    width: 619px;
-    height: 137px;
+    width: 61.9rem;
+    height: 13.7rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 16px 28px;
+    padding: 1.6rem 2.8rem;
     background: rgba(0, 0, 0, 0.20);
-    border-radius: 32px;
+    border-radius: 3.2rem;
     backdrop-filter: blur(6px);
     text-align: center;
     box-sizing: border-box;
@@ -164,16 +164,16 @@
 
     &-title {
       font-family: 'Pixelify Sans', cursive, sans-serif;
-      font-size: 36px;
+      font-size: 3.6rem;
       font-weight: 700;
-      margin: 0 0 6px 0;
+      margin: 0 0 0.6rem 0;
       white-space: nowrap;
       color: #000000;
     }
 
     &-subtitle {
       font-family: 'Pixelify Sans', cursive, sans-serif;
-      font-size: 36px;
+      font-size: 3.6rem;
       font-weight: 600;
       margin: 0;
       color: #111111;
@@ -187,13 +187,13 @@
     right: 3.908%; // X: ~1564px
     display: flex;
     flex-direction: column;
-    gap: 25px; // Y delta between theme and home
+    gap: 2.5rem; // Y delta between theme and home
     z-index: 4;
   }
 
   &__control-btn {
-    width: 55px;
-    height: 50px;
+    width: 5.5rem;
+    height: 5rem;
     background: transparent;
     border: none;
     padding: 0;
@@ -224,7 +224,7 @@
     left: 50%;
     transform: translateX(-50%);
     font-family: 'Pixelify Sans', cursive, sans-serif;
-    font-size: 18px;
+    font-size: 1.8rem;
     font-weight: 600;
     white-space: nowrap;
     text-align: center;
@@ -236,7 +236,7 @@
 
     .home__heart {
       display: inline-block;
-      margin: 0 2px;
+      margin: 0 0.2rem;
     }
   }
 
@@ -247,47 +247,50 @@
     &__nav-item {
       left: var(--mobile-left);
       top: var(--mobile-top);
-      width: 140px;
-      height: 140px;
+      width: 14rem;
+      height: 14rem;
     }
 
-    &__folder-icon {
-      width: 170px;
-      height: 145px;
+    &__folder-icon,
+    &__folder-icon-wrap,
+    &__folder-icon--closed,
+    &__folder-icon--open {
+      width: 17rem;
+      height: 14.5rem;
     }
 
     &__folder-label {
-      font-size: 20px;
+      font-size: 2rem;
     }
 
     &__hero {
       left: 17.5%; // X: 126px (720)
       top: 43.063%; // Y: 689px (1600)
-      width: 462px;
-      height: 97px;
+      width: 46.2rem;
+      height: 9.7rem;
       max-width: 88vw;
-      padding: 12px 16px;
-      border-radius: 20px;
+      padding: 1.2rem 1.6rem;
+      border-radius: 2rem;
 
       &-title {
-        font-size: 26px;
+        font-size: 2.6rem;
         white-space: normal;
       }
 
       &-subtitle {
-        font-size: 24px;
+        font-size: 2.4rem;
       }
     }
 
     &__controls {
       top: 2.525%;
       right: 10.5%;
-      gap: 25px;
+      gap: 2.5rem;
     }
 
     &__footer {
       bottom: 7.5%;
-      font-size: 14px;
+      font-size: 1.4rem;
     }
   }
 }
