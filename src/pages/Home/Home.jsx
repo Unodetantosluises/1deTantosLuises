@@ -16,6 +16,10 @@ import folderPinkOpen from '../../assets/icons/Folder-Rosa-Abierto.png';
 import folderGreen from '../../assets/icons/Folder-Verde-Claro-Cerrado.png';
 import folderGreenOpen from '../../assets/icons/Folder-Verde-Claro-Abierto.png';
 
+// Import control button icons (.png)
+import iconThemeDark from '../../assets/icon-theme/theme=dark.svg';
+import iconHomeDay from '../../assets/icon-home/home-button=nigth.svg';
+
 const NAV_ITEMS = [
   {
     id: 'item-portfolio',
@@ -128,18 +132,25 @@ export const Home = ({ onToggleTheme, isDarkMode = false }) => {
           <button
             type="button"
             className="home__control-btn home__control-btn--theme"
-            onClick={onToggleTheme}
             aria-label="Cambiar tema"
           >
-            <span className={`icon icon--${isDarkMode ? 'sun' : 'moon'}`} />
+            <img
+              src={iconThemeDark}
+              alt="Tema"
+              className="home__control-icon"
+            />
           </button>
-          <Link
-            to="/"
+          <button
+            type="button"
             className="home__control-btn home__control-btn--home"
-            aria-label="Ir a inicio"
+            aria-label="Inicio"
           >
-            <span className="icon icon--home" />
-          </Link>
+            <img
+              src={iconHomeDay}
+              alt="Inicio"
+              className="home__control-icon"
+            />
+          </button>
         </aside>
 
         {/* Footer */}

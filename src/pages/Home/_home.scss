@@ -146,7 +146,7 @@
   // Central Intro Card (Rectangle 41)
   &__hero {
     position: absolute;
-    left: 35.301%; // X: 610px (1728)
+    left: 33.701%; // X: 610px (1728)
     top: 42.346%; // Y: 473px (1117)
     width: 619px;
     height: 137px;
@@ -183,11 +183,11 @@
   // Controls (Top Right)
   &__controls {
     position: absolute;
-    top: 4.476%; // Y: 50px
-    right: 6.308%; // X: 1564px
+    top: 3.476%; // Y: ~50px
+    right: 3.908%; // X: ~1564px
     display: flex;
     flex-direction: column;
-    gap: 39px; // Y delta between theme (50px) and home (139px)
+    gap: 25px; // Y delta between theme and home
     z-index: 4;
   }
 
@@ -206,6 +206,15 @@
     &:hover {
       transform: scale(1.1);
     }
+  }
+
+  &__control-icon {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    display: block;
   }
 
   // Footer (Bottom)
@@ -271,9 +280,9 @@
     }
 
     &__controls {
-      top: 3.125%;
-      right: 12.5%;
-      gap: 39px;
+      top: 2.525%;
+      right: 10.5%;
+      gap: 25px;
     }
 
     &__footer {
