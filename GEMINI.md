@@ -9,5 +9,23 @@
 ## Technical Stack
 
 - **Frontend:** React 18 + Vite.
+- **Routing:** React Router DOM (declarative routes in `src/App.jsx`).
 - **Styles:** Sass / SCSS (`_name.scss` files alongside each component/page).
 - **Semantics:** Clean and accessible HTML5, avoiding unnecessary divs.
+
+## Project Structure & Architecture
+
+- **Pages (`src/pages/`):**
+  - `/` -> `Home/Home.jsx` (Navigation canvas with folders and intro).
+  - `/portafolio` -> `Portfolio/Portfolio.jsx`
+  - `/experiencia` -> `Experience/Experience.jsx`
+  - `/blog` -> `Blog/Blog.jsx`
+  - `/sobre-mi` -> `About/About.jsx`
+  - `/contacto` -> `Contact/Contact.jsx`
+- **Shared Components (`src/components/`):**
+  - `BackgroundGrid`: Exact non-uniform vector grid and pixel blocks background (preserved on every page).
+  - `Controls`: Universal controls placed on the top-right corner (Day/Night theme toggle and Home navigation button).
+  - `Layout`: Top-level wrapper for consistent canvas dimensions and responsiveness.
+  - `Roles`: Dynamic rotating roles displayed on the Home hero section.
+- **Context:**
+  - `ThemeContext`: Global dark/light theme state controlling `data-theme` on the body and CSS variables.

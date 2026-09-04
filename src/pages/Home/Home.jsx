@@ -2,25 +2,36 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../../components/Layout/Layout';
 import BackgroundGrid from '../../components/BackgroundGrid/BackgroundGrid';
+import Roles from '../../components/Roles/Roles';
 import './_home.scss';
 
 // Import folder icons (.png) exported from Aseprite
 import folderAquablue from '../../assets/icons/Folder-Azul-Cerrado.png';
 import folderAquablueOpen from '../../assets/icons/Folder-Azul-Abierto.png';
+import folderAquablueNight from '../../assets/icons/Folder-Azul-Cerrado-Nocturno.png';
+import folderAquablueNightOpen from '../../assets/icons/Folder-Azul-Abierto-Nocturno.png';
+
 import folderYellow from '../../assets/icons/Folder-Amarillo-Cerrado.png';
 import folderYellowOpen from '../../assets/icons/Folder-Amarrillo-Abierto.png';
+import folderYellowNight from '../../assets/icons/Folder-Amarillo-Cerrado-Nocturno.png';
+import folderYellowNightOpen from '../../assets/icons/Folder-Amarrillo-Abierto-Nocturno.png';
+
 import folderBlue from '../../assets/icons/Folder-Morado-Oscuro-Cerrado.png';
 import folderBlueOpen from '../../assets/icons/Folder-Morado-Oscuro-Abierto.png';
+import folderBlueNight from '../../assets/icons/Folder-Morado-Oscuro-Cerrado-Nocturno.png';
+import folderBlueNightOpen from '../../assets/icons/Folder-Morado-Oscuro-Abierto-Nocturno.png';
+
 import folderPink from '../../assets/icons/Folder-Rosa-Cerrado.png';
 import folderPinkOpen from '../../assets/icons/Folder-Rosa-Abierto.png';
+import folderPinkNight from '../../assets/icons/Folder-Rosa-Cerrado-Nocturno.png';
+import folderPinkNightOpen from '../../assets/icons/Folder-Rosa-Abierto-Nocturno.png';
+
 import folderGreen from '../../assets/icons/Folder-Verde-Claro-Cerrado.png';
 import folderGreenOpen from '../../assets/icons/Folder-Verde-Claro-Abierto.png';
+import folderGreenNight from '../../assets/icons/Folder-Verde-Cerrado-Nocturno.png';
+import folderGreenNightOpen from '../../assets/icons/Folder-Verde-Abierto-Nocturno.png';
 
-// Import control button icons (.svg)
-import iconThemeDark from '../../assets/icon-theme/theme=dark.svg';
-import iconThemeLight from '../../assets/icon-theme/theme=light.svg';
-import iconHomeDay from '../../assets/icon-home/home-button=nigth.svg';
-import iconHomeNigth from '../../assets/icon-home/home-button=day.svg';
+import Controls from '../../components/Controls/Controls';
 import { useTheme } from '../../context/ThemeContext';
 
 const NAV_ITEMS = [
@@ -29,8 +40,10 @@ const NAV_ITEMS = [
     label: 'Portafolio',
     path: '/portafolio',
     folderClass: 'folder--aquablue',
-    iconSrc: folderAquablue,
-    iconSrcOpen: folderAquablueOpen,  // hover state: folder opens
+    iconDay: folderAquablue,
+    iconDayOpen: folderAquablueOpen,
+    iconNight: folderAquablueNight,
+    iconNightOpen: folderAquablueNightOpen,
     desktopPos: { left: '15.625%', top: '10.295%' },
     mobilePos: { left: '21.667%', top: '6.375%' }
   },
@@ -39,8 +52,10 @@ const NAV_ITEMS = [
     label: 'Experiencia',
     path: '/experiencia',
     folderClass: 'folder--yellow',
-    iconSrc: folderYellow,
-    iconSrcOpen: folderYellowOpen, // hover state: folder opens
+    iconDay: folderYellow,
+    iconDayOpen: folderYellowOpen,
+    iconNight: folderYellowNight,
+    iconNightOpen: folderYellowNightOpen,
     desktopPos: { left: '42.824%', top: '5.103%' },
     mobilePos: { left: '7.778%', top: '29.313%' }
   },
@@ -49,8 +64,10 @@ const NAV_ITEMS = [
     label: 'Blog',
     path: '/blog',
     folderClass: 'folder--blue',
-    iconSrc: folderBlue,
-    iconSrcOpen: folderBlueOpen,
+    iconDay: folderBlue,
+    iconDayOpen: folderBlueOpen,
+    iconNight: folderBlueNight,
+    iconNightOpen: folderBlueNightOpen,
     desktopPos: { left: '81.481%', top: '19.964%' },
     mobilePos: { left: '68.056%', top: '27.000%' }
   },
@@ -59,8 +76,10 @@ const NAV_ITEMS = [
     label: 'Contacto',
     path: '/contacto',
     folderClass: 'folder--pink',
-    iconSrc: folderPink,
-    iconSrcOpen: folderPinkOpen,
+    iconDay: folderPink,
+    iconDayOpen: folderPinkOpen,
+    iconNight: folderPinkNight,
+    iconNightOpen: folderPinkNightOpen,
     desktopPos: { left: '17.419%', top: '62.847%' },
     mobilePos: { left: '27.639%', top: '72.813%' }
   },
@@ -69,15 +88,17 @@ const NAV_ITEMS = [
     label: 'Sobre Mi',
     path: '/sobre-mi',
     folderClass: 'folder--green',
-    iconSrc: folderGreen,
-    iconSrcOpen: folderGreenOpen,
+    iconDay: folderGreen,
+    iconDayOpen: folderGreenOpen,
+    iconNight: folderGreenNight,
+    iconNightOpen: folderGreenNightOpen,
     desktopPos: { left: '80.093%', top: '74.217%' },
     mobilePos: { left: '60.833%', top: '56.750%' }
   }
 ];
 
 export const Home = () => {
-  const { isDarkMode, toggleTheme } = useTheme();
+  const { isDarkMode } = useTheme();
 
   return (
     <Layout>
@@ -87,78 +108,58 @@ export const Home = () => {
 
         {/* Dynamic Navigation Items (Folders) */}
         <nav className="home__nav" aria-label="Navegación principal">
-          {NAV_ITEMS.map((item) => (
-            <Link
-              key={item.id}
-              to={item.path}
-              className={`home__nav-item ${item.id}`}
-              style={{
-                '--desktop-left': item.desktopPos.left,
-                '--desktop-top': item.desktopPos.top,
-                '--mobile-left': item.mobilePos.left,
-                '--mobile-top': item.mobilePos.top
-              }}
-            >
-              {/* Folder icon: swap closed→open on hover via CSS opacity */}
-              {item.iconSrcOpen ? (
-                <div className={`home__folder-icon-wrap ${item.folderClass}`}>
+          {NAV_ITEMS.map((item) => {
+            const iconSrc = isDarkMode ? item.iconNight : item.iconDay;
+            const iconSrcOpen = isDarkMode ? item.iconNightOpen : item.iconDayOpen;
+
+            return (
+              <Link
+                key={item.id}
+                to={item.path}
+                className={`home__nav-item ${item.id}`}
+                style={{
+                  '--desktop-left': item.desktopPos.left,
+                  '--desktop-top': item.desktopPos.top,
+                  '--mobile-left': item.mobilePos.left,
+                  '--mobile-top': item.mobilePos.top
+                }}
+              >
+                {/* Folder icon: swap closed→open on hover via CSS opacity */}
+                {iconSrcOpen ? (
+                  <div className={`home__folder-icon-wrap ${item.folderClass}`}>
+                    <img
+                      src={iconSrc}
+                      alt={`Carpeta ${item.label} cerrada`}
+                      className="home__folder-icon home__folder-icon--closed"
+                    />
+                    <img
+                      src={iconSrcOpen}
+                      alt={`Carpeta ${item.label} abierta`}
+                      className="home__folder-icon home__folder-icon--open"
+                      aria-hidden="true"
+                    />
+                  </div>
+                ) : (
                   <img
-                    src={item.iconSrc}
-                    alt={`Carpeta ${item.label} cerrada`}
-                    className="home__folder-icon home__folder-icon--closed"
+                    src={iconSrc}
+                    alt={`Carpeta ${item.label}`}
+                    className={`home__folder-icon ${item.folderClass}`}
                   />
-                  <img
-                    src={item.iconSrcOpen}
-                    alt={`Carpeta ${item.label} abierta`}
-                    className="home__folder-icon home__folder-icon--open"
-                    aria-hidden="true"
-                  />
-                </div>
-              ) : (
-                <img
-                  src={item.iconSrc}
-                  alt={`Carpeta ${item.label}`}
-                  className={`home__folder-icon ${item.folderClass}`}
-                />
-              )}
-              <span className="home__folder-label">{item.label}</span>
-            </Link>
-          ))}
+                )}
+                <span className="home__folder-label">{item.label}</span>
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Hero / Intro Card */}
         <header className="home__hero">
           <h1 className="home__hero-title">Soy Luis Antonio Diaz Martinez,</h1>
-          <p className="home__hero-subtitle">Ingeniero de Software</p>
+          <Roles />
         </header>
 
         {/* Control Buttons */}
-        <aside className="home__controls">
-          <button
-            type="button"
-            className="home__control-btn home__control-btn--theme"
-            aria-label={isDarkMode ? 'Cambiar a modo día' : 'Cambiar a modo noche'}
-            onClick={toggleTheme}
-          >
-            <img
-              src={isDarkMode ? iconThemeLight : iconThemeDark}
-              alt={isDarkMode ? 'Modo Día' : 'Modo Noche'}
-              className="home__control-icon"
-            />
-          </button>
-          <button
-            type="button"
-            className="home__control-btn home__control-btn--home"
-            aria-label={isDarkMode ? 'Cambiar a modo día' : 'Cambiar a modo noche'}
-            onClick={toggleTheme}
-          >
-            <img
-              src={isDarkMode ? iconHomeNigth : iconHomeDay}
-              alt={isDarkMode ? 'Modo Día' : 'Modo Noche'}
-              className="home__control-icon"
-            />
-          </button>
-        </aside>
+        <Controls />
 
         {/* Footer */}
         <footer className="home__footer">

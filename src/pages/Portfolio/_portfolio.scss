@@ -1,0 +1,41 @@
+// _portfolio.scss
+
+.portfolio {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  aspect-ratio: 1919 / 910;
+  overflow: hidden;
+  background-color: var(--bg-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Pixelify Sans', cursive, monospace, sans-serif;
+  color: var(--text-color);
+
+  .page__header {
+    position: absolute;
+    top: 6%;
+    left: 6%;
+    z-index: 2;
+  }
+
+  .page__title {
+    font-size: 3.6rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--text-color);
+    letter-spacing: -0.02em;
+  }
+
+  @media (max-width: 768px) {
+    aspect-ratio: 720 / 1600;
+
+    .page__header {
+      top: 5%;
+      left: 8%;
+    }
+
+    .page__title {
+      font-size: 2.8rem;
+    }
+  }
+}
