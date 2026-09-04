@@ -16,9 +16,11 @@ import folderPinkOpen from '../../assets/icons/Folder-Rosa-Abierto.png';
 import folderGreen from '../../assets/icons/Folder-Verde-Claro-Cerrado.png';
 import folderGreenOpen from '../../assets/icons/Folder-Verde-Claro-Abierto.png';
 
-// Import control button icons (.png)
+// Import control button icons (.svg)
 import iconThemeDark from '../../assets/icon-theme/theme=dark.svg';
+import iconThemeLight from '../../assets/icon-theme/theme=light.svg';
 import iconHomeDay from '../../assets/icon-home/home-button=nigth.svg';
+import { useTheme } from '../../context/ThemeContext';
 
 const NAV_ITEMS = [
   {
@@ -73,7 +75,9 @@ const NAV_ITEMS = [
   }
 ];
 
-export const Home = ({ onToggleTheme, isDarkMode = false }) => {
+export const Home = () => {
+  const { isDarkMode, toggleTheme } = useTheme();
+
   return (
     <Layout>
       <main className="home">
@@ -132,11 +136,12 @@ export const Home = ({ onToggleTheme, isDarkMode = false }) => {
           <button
             type="button"
             className="home__control-btn home__control-btn--theme"
-            aria-label="Cambiar tema"
+            aria-label={isDarkMode ? 'Cambiar a modo día' : 'Cambiar a modo noche'}
+            onClick={toggleTheme}
           >
             <img
-              src={iconThemeDark}
-              alt="Tema"
+              src={isDarkMode ? iconThemeLight : iconThemeDark}
+              alt={isDarkMode ? 'Modo Día' : 'Modo Noche'}
               className="home__control-icon"
             />
           </button>

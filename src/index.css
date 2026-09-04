@@ -18,6 +18,24 @@ html {
   }
 }
 
+:root {
+  --bg-color: #ffffff;
+  --block-color: #000000;
+  --grid-color: rgba(0, 0, 0, 0.18);
+  --text-color: #000000;
+  --text-shadow-color: #ffffff;
+  --hero-bg: rgba(0, 0, 0, 0.20);
+}
+
+[data-theme='dark'] {
+  --bg-color: #000000;
+  --block-color: #ffffff;
+  --grid-color: rgba(255, 255, 255, 0.18);
+  --text-color: #ffffff;
+  --text-shadow-color: #000000;
+  --hero-bg: rgba(249, 249, 249, 0.48);
+}
+
 html,
 body,
 #root {
@@ -29,7 +47,9 @@ body,
 body {
   margin: 0;
   padding: 0;
-  background-color: #ffffff;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
