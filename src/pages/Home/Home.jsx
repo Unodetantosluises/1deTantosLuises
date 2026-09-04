@@ -20,6 +20,7 @@ import folderGreenOpen from '../../assets/icons/Folder-Verde-Claro-Abierto.png';
 import iconThemeDark from '../../assets/icon-theme/theme=dark.svg';
 import iconThemeLight from '../../assets/icon-theme/theme=light.svg';
 import iconHomeDay from '../../assets/icon-home/home-button=nigth.svg';
+import iconHomeNigth from '../../assets/icon-home/home-button=day.svg';
 import { useTheme } from '../../context/ThemeContext';
 
 const NAV_ITEMS = [
@@ -148,11 +149,12 @@ export const Home = () => {
           <button
             type="button"
             className="home__control-btn home__control-btn--home"
-            aria-label="Inicio"
+            aria-label={isDarkMode ? 'Cambiar a modo día' : 'Cambiar a modo noche'}
+            onClick={toggleTheme}
           >
             <img
-              src={iconHomeDay}
-              alt="Inicio"
+              src={isDarkMode ? iconHomeNigth : iconHomeDay}
+              alt={isDarkMode ? 'Modo Día' : 'Modo Noche'}
               className="home__control-icon"
             />
           </button>
