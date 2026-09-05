@@ -19,12 +19,12 @@
     left: 2.5%;
     right: 2.1%;
     border-radius: 2.4rem;
-    background-color: rgba(22, 110, 122, 0.20); // Modo Dia
+    background-color: rgba(238, 138, 222, 0.80); // Modo Dia
     transition: background-color 0.3s ease;
     z-index: 2;
 
     body[data-theme='dark'] & {
-      background-color: rgba(37, 45, 111, 0.85); // Modo Noche
+      background-color: rgba(226, 36, 196, 0.55); // Modo Noche
     }
   }
 

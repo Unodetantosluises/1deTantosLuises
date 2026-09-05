@@ -11,6 +11,23 @@
   font-family: 'Pixelify Sans', cursive, monospace, sans-serif;
   color: var(--text-color);
 
+// Translucent Rounded Panel covering the canvas
+  &__panel {
+    position: absolute;
+    top: 3.5%;
+    bottom: 3.5%;
+    left: 2.5%;
+    right: 2.1%;
+    border-radius: 2.4rem;
+    background-color: rgba(37, 36, 70, 0.80); // Modo Día
+    transition: background-color 0.3s ease;
+    z-index: 2;
+
+    body[data-theme='dark'] & {
+      background-color: rgba(32, 21, 51, 0.55); // Modo Noche
+    }
+  }
+
   .page__header {
     position: absolute;
     top: 6%;
@@ -23,19 +40,91 @@
     font-weight: 700;
     margin: 0;
     color: var(--text-color);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.02rem;
   }
 
+  // Header: Return button + Title (Top-Left)
+  &__header {
+    position: absolute;
+    top: 3.476%;
+    left: 3.5%;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    z-index: 3;
+  }
+
+  &__return-btn {
+    width: 5.5rem;
+    height: 5rem;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--text-color);
+      border-radius: 4px;
+    }
+  }
+
+  &__return-icon {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    display: block;
+  }
+
+  &__title {
+    font-family: 'Pixelify Sans', cursive, monospace, sans-serif;
+    font-size: 8.2rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1;
+    color: #000000;
+    letter-spacing: -0.01em;
+    transition: color 0.3s ease;
+
+    body[data-theme='dark'] & {
+      color: #ffffff;
+    }
+  }
+
+  // Mobile Responsiveness
   @media (max-width: 768px) {
     aspect-ratio: 720 / 1600;
 
-    .page__header {
-      top: 5%;
-      left: 8%;
+    &__panel {
+      top: 2.5%;
+      bottom: 2.5%;
+      left: 3.5%;
+      right: 3.8%;
+      border-radius: 1.8rem;
     }
 
-    .page__title {
-      font-size: 2.8rem;
+    &__header {
+      top: 2.525%;
+      left: 4.5%;
+      gap: 1.2rem;
+    }
+
+    &__return-btn {
+      width: 4.4rem;
+      height: 4rem;
+    }
+
+    &__title {
+      font-size: 5.8rem;
     }
   }
 }
