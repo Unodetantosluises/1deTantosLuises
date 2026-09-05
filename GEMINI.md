@@ -26,6 +26,7 @@
   - `BackgroundGrid`: Exact non-uniform vector grid and pixel blocks background (preserved on every page).
   - `Controls`: Universal controls placed on the top-right corner (Day/Night theme toggle and Home navigation button).
   - `Layout`: Top-level wrapper for consistent canvas dimensions and responsiveness.
+  - `ReturnButton`: Reusable back button with Day/Night contrast icons and history navigation for subpages.
   - `Roles`: Dynamic rotating roles displayed on the Home hero section.
 - **Context:**
   - `ThemeContext`: Global dark/light theme state controlling `data-theme` on the body and CSS variables.

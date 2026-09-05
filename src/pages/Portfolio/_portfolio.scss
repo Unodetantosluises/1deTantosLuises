@@ -28,21 +28,6 @@
     }
   }
 
-  .page__header {
-    position: absolute;
-    top: 6%;
-    left: 6%;
-    z-index: 2;
-  }
-
-  .page__title {
-    font-size: 3.6rem;
-    font-weight: 700;
-    margin: 0;
-    color: var(--text-color);
-    letter-spacing: -0.02rem;
-  }
-
   // Header: Return button + Title (Top-Left)
   &__header {
     position: absolute;
@@ -54,37 +39,6 @@
     z-index: 3;
   }
 
-  &__return-btn {
-    width: 5.5rem;
-    height: 5rem;
-    background: transparent;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.15s ease;
-
-    &:hover {
-      transform: scale(1.1);
-    }
-
-    &:focus-visible {
-      outline: 2px solid var(--text-color);
-      border-radius: 4px;
-    }
-  }
-
-  &__return-icon {
-    width: 60%;
-    height: 60%;
-    object-fit: contain;
-    image-rendering: pixelated;
-    image-rendering: crisp-edges;
-    display: block;
-  }
-
   &__title {
     font-family: 'Pixelify Sans', cursive, monospace, sans-serif;
     font-size: 8.2rem;
@@ -94,10 +48,6 @@
     color: var(--text-color);
     letter-spacing: -0.01em;
     transition: color 0.3s ease;
-
-    body[data-theme='dark'] & {
-      color: #ffffff;
-    }
   }
 
   // Mobile Responsiveness
@@ -116,11 +66,6 @@
       top: 2.525%;
       left: 4.5%;
       gap: 1.2rem;
-    }
-
-    &__return-btn {
-      width: 4.4rem;
-      height: 4rem;
     }
 
     &__title {
