@@ -23,7 +23,7 @@
     transition: background-color 0.3s ease;
     z-index: 2;
 
-    body[data-theme='dark'] & {
+    [data-theme='dark'] & {
       background-color: rgba(37, 77, 112, 0.85); // Modo Noche
     }
   }
@@ -91,7 +91,7 @@
     font-weight: 700;
     margin: 0;
     line-height: 1;
-    color: #000000;
+    color: var(--text-color);
     letter-spacing: -0.01em;
     transition: color 0.3s ease;
 

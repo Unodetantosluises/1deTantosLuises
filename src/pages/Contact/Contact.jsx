@@ -10,7 +10,7 @@ import './_contact.scss';
 
 export const Contact = () => {
   const navigate = useNavigate();
-  const { isDarkmode } = useTheme();
+  const { isDarkMode } = useTheme();
 
   return (
     <Layout>
@@ -28,7 +28,7 @@ export const Contact = () => {
               onClick={() => navigate(-1)}
             >
               <img
-                src={isDarkmode ? returnButtonDay : returnButtonNight}
+                src={isDarkMode ? returnButtonDay : returnButtonNight}
                 alt="Regresar"
                 className="contact__return-icon"
               />
