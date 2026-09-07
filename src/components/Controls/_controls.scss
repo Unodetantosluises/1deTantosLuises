@@ -45,5 +45,15 @@
     top: 2.525%;
     right: 5.5%;
     gap: 2.5rem;
+
+    .controls__btn {
+      width: 7.7rem;
+      height: 7rem;
+    }
+
+    .controls__icon {
+      width: 75%;
+      height: 75%;
+    }
   }
 }

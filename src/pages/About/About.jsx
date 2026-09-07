@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Layout from '../../components/Layout/Layout';
 import BackgroundGrid from '../../components/BackgroundGrid/BackgroundGrid';
 import Controls from '../../components/Controls/Controls';
@@ -18,6 +18,16 @@ import './_about.scss';
 
 export const About = () => {
   const { isDarkMode } = useTheme();
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Automatic carousel transition every 5 seconds on mobile
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev === 0 ? 1 : 0));
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <Layout>
@@ -50,28 +60,37 @@ export const About = () => {
             {/* Lista de Favoritos */}
             <div className="about__favorites">
               <p className="about__fav-item">
-                <span className="about__line"><strong>Pelicula Favorita:</strong> Rango, Singin In</span>
-                <span className="about__line">The Rain, Casino y Beau Tiene Miedo.</span>
+                <strong>Pelicula Favorita:</strong> Rango, Singin In The Rain, Casino y Beau Tiene Miedo.
               </p>
 
               <p className="about__fav-item">
-                <span className="about__line"><strong>Escritor Favorito:</strong> Edgar Allan Poe.</span>
+                <strong>Escritor Favorito:</strong> Edgar Allan Poe.
               </p>
 
               <p className="about__fav-item">
-                <span className="about__line"><strong>Pintura Favorita:</strong> Desnudo Barroco</span>
-                <span className="about__line">de German Gedovias.</span>
+                <strong>Pintura Favorita:</strong> Desnudo Barroco de German Gedovias.
               </p>
 
               <p className="about__fav-item">
-                <span className="about__line"><strong>Show de Television Favorito:</strong></span>
-                <span className="about__line">Twin Peaks, Fleabag, The Leftovers</span>
-                <span className="about__line">& Arrested Development.</span>
+                <strong>Show de Television Favorito:</strong> Twin Peaks, Fleabag, The Leftovers & Arrested Development.
               </p>
             </div>
 
             {/* Enlaces Sociales */}
             <nav className="about__socials" aria-label="Redes sociales">
+              <a
+                href="https://open.spotify.com/user/22syhl6vwi23cmicq3wg3xbpq"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="about__social-btn"
+                aria-label="Spotify"
+              >
+                <img
+                  src={isDarkMode ? iconSpotifyLight : iconSpotifyDark}
+                  alt="Spotify"
+                  className="about__social-icon"
+                />
+              </a>
               <a
                 href="https://instagram.com"
                 target="_blank"
@@ -85,21 +104,75 @@ export const About = () => {
                   className="about__social-icon"
                 />
               </a>
-              <a
-                href="https://spotify.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="about__social-btn"
-                aria-label="Spotify"
-              >
-                <img
-                  src={isDarkMode ? iconSpotifyLight : iconSpotifyDark}
-                  alt="Spotify"
-                  className="about__social-icon"
-                />
-              </a>
             </nav>
           </section>
+
+          {/* Mobile Automatic Carousel (Hidden on Desktop) */}
+          <div className="about__carousel" aria-label="Galería de fotos móvil">
+            {/* Slide 1: Marco Grande */}
+            <div
+              className={`about__carousel-slide ${currentSlide === 0 ? 'about__carousel-slide--active' : ''}`}
+              aria-hidden={currentSlide !== 0}
+            >
+              <div className="about__carousel-frame about__carousel-frame--large">
+                <div className="about__frame-photo-wrap about__frame-photo-wrap--large">
+                  <img
+                    src={photoNeon}
+                    alt="Luis sosteniendo letrero neón de GitHub"
+                    className="about__frame-photo"
+                  />
+                </div>
+                <img
+                  src={framePhoto}
+                  alt="Marco decorativo grande"
+                  className="about__frame-img"
+                  aria-hidden="true"
+                />
+              </div>
+            </div>
+
+            {/* Slide 2: Marco Mediano y Pequeño combinados */}
+            <div
+              className={`about__carousel-slide ${currentSlide === 1 ? 'about__carousel-slide--active' : ''}`}
+              aria-hidden={currentSlide !== 1}
+            >
+              <div className="about__carousel-group">
+                {/* Marco Mediano */}
+                <div className="about__carousel-frame about__carousel-frame--medium">
+                  <div className="about__frame-photo-wrap about__frame-photo-wrap--medium">
+                    <img
+                      src={photoCooper}
+                      alt="Cooper y vinilos de Metronomy"
+                      className="about__frame-photo"
+                    />
+                  </div>
+                  <img
+                    src={framePhotoMedium}
+                    alt="Marco decorativo mediano"
+                    className="about__frame-img"
+                    aria-hidden="true"
+                  />
+                </div>
+
+                {/* Marco Pequeño */}
+                <div className="about__carousel-frame about__carousel-frame--small">
+                  <div className="about__frame-photo-wrap about__frame-photo-wrap--small">
+                    <img
+                      src={photoVanGogh}
+                      alt="Luis en recreación de la habitación de Van Gogh"
+                      className="about__frame-photo"
+                    />
+                  </div>
+                  <img
+                    src={framePhotoSmall}
+                    alt="Marco decorativo pequeño"
+                    className="about__frame-img"
+                    aria-hidden="true"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
 
           {/* Desktop Frames Collage with Photos */}
           <div className="about__frames" aria-label="Marcos decorativos con fotografías">
