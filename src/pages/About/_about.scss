@@ -36,7 +36,7 @@
     display: flex;
     align-items: center;
     gap: 2rem;
-    z-index: 3;
+    z-index: 10;
   }
 
   &__title {
@@ -48,6 +48,182 @@
     color: var(--text-color);
     letter-spacing: -0.01em;
     transition: color 0.3s ease;
+  }
+
+  // Left Content Column (Biography, Favorites & Socials)
+  &__content {
+    position: absolute;
+    top: 14%;
+    left: 7.5%;
+    width: 37%;
+    max-width: 60rem;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.1rem;
+    font-weight: 500;
+    line-height: 1.35;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+    z-index: 5;
+  }
+
+  &__paragraph {
+    margin: 0 0 2rem 0;
+    display: block;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  &__line {
+    display: block;
+    white-space: nowrap;
+  }
+
+  &__favorites {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    margin-bottom: 2.6rem;
+  }
+
+  &__fav-item {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+
+    strong {
+      font-weight: 700;
+    }
+  }
+
+  // Social Links (Instagram & Spotify)
+  &__socials {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+  }
+
+  &__social-btn {
+    width: 5.5rem;
+    height: 5rem;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--text-color);
+      border-radius: 4px;
+    }
+  }
+
+  &__social-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
+    display: block;
+  }
+
+  // Desktop Frames Composition (Only Desktop)
+  &__frames {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  &__frame {
+    position: absolute;
+    pointer-events: auto;
+
+    // Large window frame (back layer, top-right)
+    &--large {
+      top: 2.5%;
+      right: 7.5%;
+      width: 52rem;
+      height: 52rem;
+      z-index: 1;
+
+      .about__frame-photo-wrap {
+        top: 18.67%;
+        left: 13.33%;
+        width: 68.67%;
+        height: 74.00%;
+      }
+    }
+
+    // Medium window frame (front layer, center-left)
+    &--medium {
+      top: 19.5%;
+      left: 41.2%;
+      width: 53rem;
+      height: 53rem;
+      z-index: 2;
+
+      .about__frame-photo-wrap {
+        top: 20.67%;
+        left: 14.00%;
+        width: 79.33%;
+        height: 72.00%;
+      }
+    }
+
+    // Small window frame (front layer, bottom-right)
+    &--small {
+      top: 47.5%;
+      right: 6.5%;
+      width: 45rem;
+      height: 45rem;
+      z-index: 3;
+
+      .about__frame-photo-wrap {
+        top: 21.33%;
+        left: 46.00%;
+        width: 47.33%;
+        height: 50.00%;
+      }
+    }
+  }
+
+  // Window Photo Content
+  &__frame-photo-wrap {
+    position: absolute;
+    overflow: hidden;
+    z-index: 2;
+  }
+
+  &__frame-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    image-rendering: auto; // High definition clarity for real photos
+  }
+
+  // Window Frame Overlay
+  &__frame-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    display: block;
+    user-select: none;
+    z-index: 1;
+    pointer-events: none;
   }
 
   // Mobile Responsiveness
@@ -70,6 +246,22 @@
 
     &__title {
       font-size: 5.8rem;
+    }
+
+    &__content {
+      top: 11%;
+      left: 4.5%;
+      width: 90%;
+      max-width: 100%;
+      font-size: 1.8rem;
+    }
+
+    &__line {
+      white-space: normal;
+    }
+
+    &__frames {
+      display: none; // Frames hidden on mobile as requested
     }
   }
 }
