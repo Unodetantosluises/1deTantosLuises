@@ -116,19 +116,39 @@
 
   // Mobile Responsiveness
   @media (max-width: 768px) {
-    aspect-ratio: 720 / 1600;
+    aspect-ratio: auto;
+    min-height: 100vh;
+    height: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 
     &__panel {
-      top: 2.5%;
-      bottom: 2.5%;
-      left: 3.5%;
-      right: 3.8%;
+      position: relative;
+      top: auto;
+      bottom: auto;
+      left: auto;
+      right: auto;
+      margin: 2rem 2.5rem 4rem 2.5rem;
+      min-height: calc(100vh - 6rem);
+      height: auto;
       border-radius: 1.8rem;
+      padding: 3rem 2rem 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .controls {
+      position: absolute;
+      top: 3rem;
+      right: 2.5rem;
     }
 
     &__header {
-      top: 2.525%;
-      left: 4.5%;
+      position: relative;
+      top: auto;
+      left: auto;
+      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -142,28 +162,42 @@
     }
 
     &__description {
-      top: 15.5%;
-      left: 4.5%;
-      width: 91%;
+      position: relative;
+      top: auto;
+      left: auto;
+      width: 95%;
       max-width: 100%;
       font-size: 2.15rem;
       line-height: 1.35;
+      margin: 2rem 0 3.5rem 0;
+      text-align: justify;
+      text-justify: inter-word;
     }
 
     &__grid {
-      top: 28%;
-      left: 4.5%;
-      right: 4.5%;
+      position: relative;
+      top: auto;
+      left: auto;
+      right: auto;
+      width: 100%;
+      display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 3rem;
-      overflow-y: auto;
-      max-height: 65%;
-      padding-bottom: 2rem;
+      gap: 3.5rem;
+      overflow: visible;
+      max-height: none;
+      padding-bottom: 0;
     }
 
     &__action {
-      bottom: 2%;
+      position: relative;
+      bottom: auto;
+      left: auto;
+      transform: none;
+      margin-top: 4rem;
+      width: 100%;
+      display: flex;
+      justify-content: center;
     }
 
     &__more-btn {
