@@ -18,17 +18,17 @@
     bottom: 3.5%;
     left: 2.5%;
     right: 2.1%;
-    border-radius: 2.4rem;
-    background-color: rgba(37, 36, 70, 0.80); // Modo Día
+    border-radius: 4rem;
+    background-color: rgba(37, 36, 70, 0.80); // Day mode (#252446 @ 80%)
     transition: background-color 0.3s ease;
     z-index: 2;
 
     [data-theme='dark'] & {
-      background-color: rgba(32, 21, 51, 0.55); // Modo Noche
+      background-color: rgba(32, 21, 51, 0.55); // Night mode (#201533 @ 55%)
     }
   }
 
-  // Header: Return button + Title (Top-Left)
+  // Header: Return Button + Title (Top-Left)
   &__header {
     position: absolute;
     top: 3.476%;
@@ -36,18 +36,82 @@
     display: flex;
     align-items: center;
     gap: 2rem;
-    z-index: 3;
+    z-index: 10;
   }
 
   &__title {
     font-family: 'Pixelify Sans', cursive, monospace, sans-serif;
-    font-size: 8.2rem;
+    font-size: 6.4rem;
     font-weight: 700;
     margin: 0;
     line-height: 1;
     color: var(--text-color);
     letter-spacing: -0.01em;
     transition: color 0.3s ease;
+  }
+
+  // Intro Description under header
+  &__description {
+    position: absolute;
+    top: 13%;
+    left: 7.5%;
+    width: 80%;
+    max-width: 130rem;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 500;
+    line-height: 1.25;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+    z-index: 3;
+  }
+
+  // Blog Cards Grid
+  &__grid {
+    position: absolute;
+    top: 23%;
+    left: 4.8%;
+    right: 4.8%;
+    display: flex;
+    justify-content: center;
+    gap: 4.7rem;
+    z-index: 3;
+  }
+
+  // More Publications Action Button
+  &__action {
+    position: absolute;
+    bottom: 3.2%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+  }
+
+  &__more-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40.9rem;
+    height: 7.1rem;
+    border-radius: 3.4rem;
+    font-family: 'Pixelify Sans', cursive, monospace, sans-serif;
+    font-size: 3.2rem;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    background-color: #000000;
+    color: #ffffff;
+    transition: transform 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+
+    [data-theme='dark'] & {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 
   // Mobile Responsiveness
@@ -71,5 +135,173 @@
     &__title {
       font-size: 5.8rem;
     }
+
+    &__description {
+      top: 13%;
+      left: 4.5%;
+      width: 90%;
+      font-size: 1.8rem;
+    }
+
+    &__grid {
+      top: 24%;
+      left: 4.5%;
+      right: 4.5%;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+      overflow-y: auto;
+      max-height: 65%;
+      padding-bottom: 2rem;
+    }
+
+    &__action {
+      bottom: 2%;
+    }
+
+    &__more-btn {
+      width: 32rem;
+      height: 5.6rem;
+      font-size: 2.4rem;
+    }
+  }
+}
+
+// Blog Card Article
+.blog-card {
+  width: 45.7rem;
+  height: 57.3rem;
+  border-radius: 3.5rem;
+  background-color: rgba(217, 217, 217, 0.70);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+
+  [data-theme='dark'] & {
+    background-color: rgba(217, 217, 217, 0.35);
+  }
+
+  // Hover interaction: smooth translateY and subtle elevation
+  &:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.25);
+  }
+
+  &__cover {
+    width: 100%;
+    aspect-ratio: 2048 / 1365;
+    border-radius: 3.2rem;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1.6rem 2.2rem 2.2rem 2.2rem;
+  }
+
+  &__tags {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  &__tag {
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 2.4rem;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: opacity 0.2s ease, transform 0.15s ease;
+
+    &:hover {
+      opacity: 0.75;
+      transform: scale(1.05);
+    }
+  }
+
+  &__title {
+    font-family: 'Pixelify Sans', cursive, monospace, sans-serif;
+    font-size: 3.6rem;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--text-color);
+    margin: 0 0 0.8rem 0;
+    transition: color 0.3s ease;
+  }
+
+  &__subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 1.25;
+    color: var(--text-color);
+    margin: 0 0 auto 0;
+    transition: color 0.3s ease;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.4rem;
+  }
+
+  &__date {
+    font-family: 'Pixelify Sans', cursive, monospace, sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+  }
+
+  &__read-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 7.5rem;
+    height: 4.5rem;
+    border-radius: 2.25rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s ease, filter 0.2s ease;
+
+    &:hover {
+      transform: scale(1.08);
+      filter: brightness(1.15);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--text-color);
+      border-radius: 2.25rem;
+    }
+  }
+
+  &__read-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 45.7rem;
+    height: auto;
+    min-height: 52rem;
   }
 }
