@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../../components/Layout/Layout';
 import BackgroundGrid from '../../components/BackgroundGrid/BackgroundGrid';
@@ -8,40 +8,12 @@ import { useTheme } from '../../context/ThemeContext';
 import blogCoverImage from '../../images/blog_cover_antigravity.png';
 import readBlogDay from '../../assets/read-blog-day.svg';
 import readBlogNight from '../../assets/read-blog-night.svg';
+import { getRecentBlogPosts } from '../../data/blogPosts';
 import './_blog.scss';
-
-const BLOG_POSTS = [
-  {
-    id: 1,
-    slug: 'usando-figma-con-antigravity-1',
-    title: 'Usando Figma con Antigravity',
-    subtitle: 'Una nueva forma de desarrollar e iterrar.',
-    date: '09-09-2026',
-    tags: ['#UX', '#MCP', '#Antigravity'],
-    image: blogCoverImage,
-  },
-  {
-    id: 2,
-    slug: 'usando-figma-con-antigravity-2',
-    title: 'Usando Figma con Antigravity',
-    subtitle: 'Una nueva forma de desarrollar e iterrar.',
-    date: '09-09-2026',
-    tags: ['#UX', '#MCP', '#Antigravity'],
-    image: blogCoverImage,
-  },
-  {
-    id: 3,
-    slug: 'usando-figma-con-antigravity-3',
-    title: 'Usando Figma con Antigravity',
-    subtitle: 'Una nueva forma de desarrollar e iterrar.',
-    date: '09-09-2026',
-    tags: ['#UX', '#MCP', '#Antigravity'],
-    image: blogCoverImage,
-  },
-];
 
 export const Blog = () => {
   const { isDarkMode } = useTheme();
+  const recentPosts = useMemo(() => getRecentBlogPosts(3), []);
 
   return (
     <Layout>
@@ -66,9 +38,9 @@ export const Blog = () => {
             vista.
           </p>
 
-          {/* Blog Cards Grid */}
-          <section className="blog__grid" aria-label="Publicaciones del blog">
-            {BLOG_POSTS.map((post) => (
+          {/* Blog Cards Grid: 3 most recent posts */}
+          <section className="blog__grid" aria-label="Publicaciones destacadas del blog">
+            {recentPosts.map((post) => (
               <article key={post.id} className="blog-card">
                 <div className="blog-card__cover">
                   <img
@@ -119,7 +91,7 @@ export const Blog = () => {
 
           {/* More Publications Action Button */}
           <div className="blog__action">
-            <Link to="/blog" className="blog__more-btn">
+            <Link to="/blog/posts" className="blog__more-btn">
               Mas publicaciones
             </Link>
           </div>

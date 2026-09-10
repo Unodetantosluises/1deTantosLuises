@@ -5,6 +5,7 @@ import Home from './pages/Home/Home';
 import Portfolio from './pages/Portfolio/Portfolio';
 import Experience from './pages/Experience/Experience';
 import Blog from './pages/Blog/Blog';
+import BlogPosts from './pages/BlogPosts/BlogPosts';
 import About from './pages/About/About';
 import Contact from './pages/Contact/Contact';
 
@@ -17,6 +18,7 @@ export function App() {
           <Route path="/portafolio" element={<Portfolio />} />
           <Route path="/experiencia" element={<Experience />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/posts" element={<BlogPosts />} />
           <Route path="/sobre-mi" element={<About />} />
           <Route path="/contacto" element={<Contact />} />
           <Route path="*" element={<Home />} />

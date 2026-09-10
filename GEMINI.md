@@ -20,6 +20,7 @@
   - `/portafolio` -> `Portfolio/Portfolio.jsx`
   - `/experiencia` -> `Experience/Experience.jsx`
   - `/blog` -> `Blog/Blog.jsx`
+  - `/blog/posts` -> `BlogPosts/BlogPosts.jsx` (Complete blog archives with search and dynamic pagination).
   - `/sobre-mi` -> `About/About.jsx`
   - `/contacto` -> `Contact/Contact.jsx`
 - **Shared Components (`src/components/`):**
