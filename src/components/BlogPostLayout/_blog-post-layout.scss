@@ -267,92 +267,131 @@
 
 // Mobile Breakpoint (< 768px)
 @media (max-width: 768px) {
-  .controls {
-    position: absolute;
-    top: 3rem;
-    right: 2.5rem;
-  }
-
   .blog-post-page {
     aspect-ratio: auto;
-    min-height: 100vh;
-    height: auto;
-    overflow-y: auto;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 
     &__panel {
-      position: relative;
-      top: auto;
-      bottom: auto;
-      left: auto;
-      right: auto;
-      width: 92%;
-      margin: 2rem auto 4rem auto;
-      min-height: calc(100vh - 4rem);
-      border-radius: 2.8rem;
-      padding: 2.4rem 2rem 3rem 2rem;
+      position: absolute;
+      top: 2.4%;
+      bottom: 2.4%;
+      left: 5.2%;
+      right: 5.2%;
+      border-radius: 3.2rem;
+      padding: 3rem 3.2rem 2.4rem 3.2rem;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
     }
 
     &__nav {
-      top: 2rem;
-      left: 2rem;
+      position: absolute;
+      top: 2.8rem;
+      left: 2.8rem;
+      z-index: 10;
     }
   }
 
+  .controls {
+    position: absolute;
+    top: 2.8rem;
+    right: 2.8rem;
+    z-index: 10;
+  }
+
   .post-header-text {
-    margin-top: 15rem;
+    flex-shrink: 0;
+    margin-top: 8.5rem;
     width: 100%;
+    padding-right: 9rem;
 
     &__title {
-      font-size: 8rem;
+      font-size: 6.0rem;
+      line-height: 1.05;
       margin-bottom: 0.8rem;
       padding-bottom: 0.8rem;
+      border-bottom: 2px solid var(--text-color);
     }
 
     &__subtitle {
-      font-size: 4rem;
-      margin-bottom: 0.8rem;
+      font-size: 3.0rem;
+      line-height: 1.25;
+      margin-bottom: 0.6rem;
     }
 
     &__date {
-      font-size: 3rem;
+      font-size: 2.2rem;
     }
   }
 
   .blog-post {
-    overflow-y: visible;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
     max-width: 100%;
     margin-top: 2rem;
-    padding-right: 0;
+    padding-right: 1rem;
+    display: flex;
+    flex-direction: column;
+
+    // Retro 6px Custom Scrollbar on Mobile
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--text-color);
+      border-radius: 3px;
+    }
 
     &__cover {
-      height: 22rem;
+      width: 100%;
+      height: 32rem;
+      max-height: 36vh;
       margin-bottom: 2rem;
+      flex-shrink: 0;
+      border-radius: 0.6rem;
+      overflow: hidden;
+
+      &-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
 
     &__tags {
       font-size: 2rem;
-      gap: 1.6rem;
+      gap: 2rem;
       margin-bottom: 2rem;
     }
 
     &__content {
-      font-size: 3rem;
-      line-height: 1.65;
+      font-size: 2.8rem;
+      line-height: 1.55;
 
       p {
-        margin-bottom: 1.8rem;
+        margin-bottom: 2rem;
       }
 
       h1 {
-        font-size: 3.2rem;
+        font-size: 3.6rem;
       }
 
       h2 {
-        font-size: 2.6rem;
+        font-size: 3rem;
       }
 
       h3 {
-        font-size: 2.2rem;
+        font-size: 2.6rem;
       }
     }
   }
