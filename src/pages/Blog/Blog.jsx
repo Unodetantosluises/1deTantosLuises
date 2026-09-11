@@ -72,7 +72,7 @@ export const Blog = () => {
 
                     {/* Single Trigger to Read Post */}
                     <Link
-                      to={`/blog/${post.slug}`}
+                      to={`/blog/posts/${post.slug}`}
                       className="blog-card__read-btn"
                       aria-label={`Leer artículo: ${post.title}`}
                     >

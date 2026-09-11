@@ -1,0 +1,359 @@
+// _blog-post-layout.scss
+
+.blog-post-page {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  aspect-ratio: 1919 / 1110;
+  overflow: hidden;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Pixelify Sans', cursive, monospace, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  // Translucent Rounded Panel
+  &__panel {
+    position: absolute;
+    top: 3.5%;
+    bottom: 3.5%;
+    left: 2.5%;
+    right: 2.1%;
+    border-radius: 2.4rem;
+    background-color: rgba(37, 36, 70, 0.90); // Day mode (#252446 @ 90%)
+    transition: background-color 0.3s ease;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 3.5rem 11rem 3rem 11rem;
+
+    [data-theme='dark'] & {
+      background-color: rgba(32, 21, 51, 0.85); // Night mode (#201533 @ 85%)
+    }
+  }
+
+  // Back navigation button pinned top-left
+  &__nav {
+    position: absolute;
+    top: 3.5rem;
+    left: 3.5rem;
+    z-index: 10;
+  }
+}
+
+// Fixed Header Text Component (Semantic <hgroup>)
+.post-header-text {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 140rem;
+  margin: 0 auto;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    font-family: 'Pixelify Sans', cursive, monospace, sans-serif;
+    font-size: 6.4rem;
+    font-weight: 700;
+    line-height: 1.05;
+    margin: 0 0 1rem 0;
+    color: var(--text-color);
+    word-break: break-word;
+
+    // Pure CSS separator as strictly specified in Dev Note (no SVGs / images / empty divs)
+    border-bottom: 2px solid var(--text-color);
+    padding-bottom: 0.8rem;
+    transition: border-color 0.3s ease, color 0.3s ease;
+  }
+
+  &__subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.2rem;
+    font-weight: 500;
+    line-height: 1.25;
+    margin: 0 0 0.6rem 0;
+    color: var(--text-color);
+    word-break: break-word;
+    transition: color 0.3s ease;
+  }
+
+  &__date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 500;
+    margin: 0;
+    color: var(--text-color);
+    opacity: 0.88;
+    transition: color 0.3s ease;
+  }
+}
+
+// Scrollable Article Container (App-like UI with retro scrollbar)
+.blog-post {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  max-width: 140rem;
+  margin: 2.2rem auto 0 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 1.6rem;
+  display: flex;
+  flex-direction: column;
+
+  // Retro 8px Custom Scrollbar
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--text-color);
+    border-radius: 4px;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  // Cover Image
+  &__cover {
+    width: 100%;
+    height: 47.9rem;
+    max-height: 48vh;
+    margin-bottom: 2.4rem;
+    overflow: hidden;
+    flex-shrink: 0;
+    border-radius: 0.6rem;
+
+    &-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  // Tags Container
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.4rem;
+    margin-bottom: 2.4rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.0rem;
+    font-weight: 500;
+    font-style: italic;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+  }
+
+  &__tag {
+    cursor: default;
+  }
+
+  // Nested Typography Styles for Markdown / MDX Content
+  &__content {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 2.4rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    word-break: break-word;
+    transition: color 0.3s ease;
+
+    p {
+      margin-top: 0;
+      margin-bottom: 2.4rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Pixelify Sans', cursive, monospace, sans-serif;
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 3.6rem 0 1.6rem 0;
+      color: var(--text-color);
+    }
+
+    h1 {
+      font-size: 4.8rem;
+    }
+
+    h2 {
+      font-size: 3.6rem;
+    }
+
+    h3 {
+      font-size: 2.8rem;
+    }
+
+    h4 {
+      font-size: 2.4rem;
+    }
+
+    ul,
+    ol {
+      padding-left: 3rem;
+      margin-top: 0;
+      margin-bottom: 2.4rem;
+
+      li {
+        margin-bottom: 0.8rem;
+      }
+    }
+
+    blockquote {
+      border-left: 4px solid var(--text-color);
+      padding: 1.2rem 2.4rem;
+      margin: 2.8rem 0;
+      font-style: italic;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 0 8px 8px 0;
+    }
+
+    code {
+      font-family: monospace;
+      font-size: 0.9em;
+      background: rgba(0, 0, 0, 0.35);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+    }
+
+    pre {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 1.8rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin-bottom: 2.4rem;
+
+      code {
+        background: none;
+        padding: 0;
+      }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      transition: opacity 0.2s ease;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 2rem 0;
+    }
+
+    strong {
+      font-weight: 700;
+    }
+  }
+}
+
+// Mobile Breakpoint (< 768px)
+@media (max-width: 768px) {
+  .controls {
+    position: absolute;
+    top: 3rem;
+    right: 2.5rem;
+  }
+
+  .blog-post-page {
+    aspect-ratio: auto;
+    min-height: 100vh;
+    height: auto;
+    overflow-y: auto;
+
+    &__panel {
+      position: relative;
+      top: auto;
+      bottom: auto;
+      left: auto;
+      right: auto;
+      width: 92%;
+      margin: 2rem auto 4rem auto;
+      min-height: calc(100vh - 4rem);
+      border-radius: 2.8rem;
+      padding: 2.4rem 2rem 3rem 2rem;
+    }
+
+    &__nav {
+      top: 2rem;
+      left: 2rem;
+    }
+  }
+
+  .post-header-text {
+    margin-top: 15rem;
+    width: 100%;
+
+    &__title {
+      font-size: 8rem;
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.8rem;
+    }
+
+    &__subtitle {
+      font-size: 4rem;
+      margin-bottom: 0.8rem;
+    }
+
+    &__date {
+      font-size: 3rem;
+    }
+  }
+
+  .blog-post {
+    overflow-y: visible;
+    max-width: 100%;
+    margin-top: 2rem;
+    padding-right: 0;
+
+    &__cover {
+      height: 22rem;
+      margin-bottom: 2rem;
+    }
+
+    &__tags {
+      font-size: 2rem;
+      gap: 1.6rem;
+      margin-bottom: 2rem;
+    }
+
+    &__content {
+      font-size: 3rem;
+      line-height: 1.65;
+
+      p {
+        margin-bottom: 1.8rem;
+      }
+
+      h1 {
+        font-size: 3.2rem;
+      }
+
+      h2 {
+        font-size: 2.6rem;
+      }
+
+      h3 {
+        font-size: 2.2rem;
+      }
+    }
+  }
+}

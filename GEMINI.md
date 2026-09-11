@@ -21,10 +21,12 @@
   - `/experiencia` -> `Experience/Experience.jsx`
   - `/blog` -> `Blog/Blog.jsx`
   - `/blog/posts` -> `BlogPosts/BlogPosts.jsx` (Complete blog archives with search and dynamic pagination).
+  - `/blog/posts/:slug` -> `BlogPost/BlogPost.jsx` (Individual post view with dynamic slug, Markdown typography, and retro scrollbar).
   - `/sobre-mi` -> `About/About.jsx`
   - `/contacto` -> `Contact/Contact.jsx`
 - **Shared Components (`src/components/`):**
   - `BackgroundGrid`: Exact non-uniform vector grid and pixel blocks background (preserved on every page).
+  - `BlogPostLayout`: Semantic MDX/Markdown post wrapper (`<article className="blog-post">`) with pinned `<hgroup>`, pure CSS border separator on `<h1>`, and retro 8px scrollbar.
   - `Controls`: Universal controls placed on the top-right corner (Day/Night theme toggle and Home navigation button).
   - `Layout`: Top-level wrapper for consistent canvas dimensions and responsiveness.
   - `ReturnButton`: Reusable back button with Day/Night contrast icons and history navigation for subpages.

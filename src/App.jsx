@@ -8,6 +8,7 @@ import Blog from './pages/Blog/Blog';
 import BlogPosts from './pages/BlogPosts/BlogPosts';
 import About from './pages/About/About';
 import Contact from './pages/Contact/Contact';
+import BlogPost from './pages/BlogPost/BlogPost';
 
 export function App() {
   return (
@@ -19,6 +20,8 @@ export function App() {
           <Route path="/experiencia" element={<Experience />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/posts" element={<BlogPosts />} />
+          <Route path="/blog/posts/:slug" element={<BlogPost />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/sobre-mi" element={<About />} />
           <Route path="/contacto" element={<Contact />} />
           <Route path="*" element={<Home />} />

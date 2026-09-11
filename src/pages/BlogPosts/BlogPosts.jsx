@@ -119,7 +119,7 @@ export const BlogPosts = () => {
               visiblePosts.map((post) => (
                 <article key={post.id} className="blog-mini-card">
                   <Link
-                    to={`/blog/${post.slug}`}
+                    to={`/blog/posts/${post.slug}`}
                     className="blog-mini-card__link"
                     aria-label={`Leer publicación: ${post.title}`}
                   >
