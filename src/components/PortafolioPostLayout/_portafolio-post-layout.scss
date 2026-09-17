@@ -281,58 +281,65 @@
     &__body {
       flex-direction: column;
       margin-top: 1.5rem;
-      gap: 2.5rem;
-      overflow-y: auto;
-      overflow-x: hidden;
-      padding-right: 0.8rem;
-      padding-bottom: 2rem;
+      gap: 1.6rem;
+      overflow: hidden;
+      flex: 1;
+      min-height: 0;
+      padding-right: 0;
+      padding-bottom: 0.5rem;
     }
 
     .project-details {
+      order: 1;
       width: 100%;
       max-width: 48.8rem;
       margin: 0 auto;
       flex-shrink: 0;
-      gap: 1.2rem;
+      gap: 1rem;
       overflow-y: visible;
 
       &__section {
-        padding: 0.4rem 0;
+        padding: 0.2rem 0;
         gap: 0.4rem;
       }
 
       &__label {
-        font-size: 2.6rem;
+        font-size: 2.4rem;
       }
 
       &__value {
-        font-size: 2.2rem;
+        font-size: 2rem;
       }
 
       &__tools-group {
-        gap: 3rem;
+        gap: 2.5rem;
       }
 
       &__tool-icon {
-        width: 4.8rem;
-        height: 4.4rem;
+        width: 4.6rem;
+        height: 4.2rem;
       }
 
       &__link {
-        font-size: 2.2rem;
+        font-size: 2rem;
       }
     }
 
     .portafolio-post-layout {
+      order: 2;
+      flex: 1;
+      min-height: 0;
       width: 100%;
       max-width: 55rem;
       margin: 0 auto;
-      overflow-y: visible;
-      padding-right: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding-right: 0.8rem;
       gap: 2rem;
 
       &__cover {
-        height: 28rem;
+        height: 24rem;
+        border-radius: 0.8rem;
       }
 
       .markdown-content {
