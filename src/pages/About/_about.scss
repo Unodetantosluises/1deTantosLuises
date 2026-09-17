@@ -19,13 +19,9 @@
     left: 2.5%;
     right: 2.1%;
     border-radius: 2.4rem;
-    background-color: rgba(178, 217, 66, 0.90); // Modo Día
+    background-color: var(--panel-about-bg);
     transition: background-color 0.3s ease;
     z-index: 2;
-
-    [data-theme='dark'] & {
-      background-color: rgba(82, 195, 63, 0.85); // Modo Noche
-    }
   }
 
   // Header: Return button + Title (Top-Left)

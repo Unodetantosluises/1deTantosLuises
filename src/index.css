@@ -1,3 +1,6 @@
+/* Import Centralized Design Tokens & Theme Variables */
+@import './styles/_theme.scss';
+
 /* Global CSS Reset & Base Styles */
 
 *,
@@ -16,24 +19,6 @@ html {
   html {
     font-size: calc(100vw / 72);
   }
-}
-
-:root {
-  --bg-color: #ffffff;
-  --block-color: #000000;
-  --grid-color: rgba(0, 0, 0, 0.18);
-  --text-color: #000000;
-  --text-shadow-color: #ffffff;
-  --hero-bg: rgba(0, 0, 0, 0.20);
-}
-
-[data-theme='dark'] {
-  --bg-color: #000000;
-  --block-color: #ffffff;
-  --grid-color: rgba(255, 255, 255, 0.18);
-  --text-color: #ffffff;
-  --text-shadow-color: #000000;
-  --hero-bg: rgba(249, 249, 249, 0.48);
 }
 
 html,

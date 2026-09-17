@@ -1,3 +1,5 @@
+// _portfolio.scss
+
 // Micro-transiciones de entrada (GPU-accelerated)
 @keyframes portfolioPanelEnter {
   0% {
@@ -29,8 +31,8 @@
   overflow: hidden;
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: 'Pixelify Sans', cursive, monospace, sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: var(--font-title);
+  transition: var(--transition-theme);
 
   // Translucent Rounded Panel covering the canvas
   &__panel {
@@ -39,20 +41,16 @@
     bottom: 4.2%;
     left: 3.2%;
     right: 3.2%;
-    border-radius: 4rem;
-    background-color: rgba(22, 110, 122, 0.75); // Modo Día (#166E7A @ 75%)
-    transition: background-color 0.3s ease;
+    border-radius: var(--radius-panel-desktop);
+    background-color: var(--panel-portfolio-bg);
+    transition: var(--transition-theme);
     z-index: 2;
     display: flex;
     flex-direction: column;
     overflow: hidden;
     padding: 3.5rem 6.5rem 3rem 6.5rem;
-    animation: portfolioPanelEnter 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: portfolioPanelEnter var(--duration-micro) var(--ease-retro) both;
     will-change: opacity, transform;
-
-    [data-theme='dark'] & {
-      background-color: rgba(10, 52, 58, 0.85); // Modo Noche (#0A343A @ 85%)
-    }
   }
 
   // Top-Left Back Navigation
@@ -75,8 +73,8 @@
     gap: 1rem;
 
     &__title {
-      font-family: 'Pixelify Sans', cursive, monospace, sans-serif;
-      font-size: 6.4rem;
+      font-family: var(--font-title);
+      font-size: var(--font-size-h1);
       font-weight: 700;
       line-height: 1;
       margin: 0;
@@ -86,8 +84,8 @@
     }
 
     &__subtitle {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 3.2rem;
+      font-family: var(--font-body);
+      font-size: var(--font-size-subtitle);
       font-weight: 500;
       line-height: 1.35;
       color: var(--text-color);
@@ -112,7 +110,7 @@
     flex-direction: column;
     gap: 3rem;
     outline: none;
-    animation: portfolioCardsEnter 0.32s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
+    animation: portfolioCardsEnter var(--duration-settle) var(--ease-retro) 0.05s both;
     will-change: opacity, transform;
   }
 
@@ -125,7 +123,7 @@
       bottom: 2.5%;
       left: 3.5%;
       right: 3.8%;
-      border-radius: 2rem;
+      border-radius: var(--radius-panel-mobile);
       padding: 2.5rem 2rem 2.5rem 2rem;
     }
 
@@ -140,11 +138,11 @@
       gap: 0.8rem;
 
       &__title {
-        font-size: 8rem;
+        font-size: var(--font-size-hero);
       }
 
       &__subtitle {
-        font-size: 2.15rem;
+        font-size: var(--font-size-subtitle);
         line-height: 1.35;
       }
     }
@@ -165,11 +163,11 @@
   max-width: 139.5rem;
   height: 37rem;
   flex-shrink: 0;
-  border-radius: 2rem;
+  border-radius: var(--radius-card);
   overflow: hidden;
   cursor: pointer;
   outline: none;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: var(--overlay-dark-subtle);
   text-decoration: none;
   display: block;
 
@@ -179,7 +177,7 @@
     inset: 0;
     width: 100%;
     height: 100%;
-    border-radius: 2rem;
+    border-radius: var(--radius-card);
     overflow: hidden;
   }
 
@@ -188,7 +186,7 @@
     height: 100%;
     object-fit: cover;
     display: block;
-    border-radius: 2rem;
+    border-radius: var(--radius-card);
     pointer-events: none;
     transition: transform 0.4s ease;
   }
@@ -197,8 +195,9 @@
   &__hover {
     position: absolute;
     inset: 0;
-    border-radius: 2rem;
-    background-color: rgba(22, 110, 122, 0.85); // Modo Día
+    border-radius: var(--radius-card);
+    background-color: var(--portfolio-card-hover-bg);
+    color: var(--portfolio-card-hover-color);
     opacity: 0;
     transition: opacity 0.3s ease;
     display: flex;
@@ -206,12 +205,6 @@
     justify-content: space-between;
     padding: 2.5rem 3rem;
     z-index: 3;
-    color: #000000;
-
-    [data-theme='dark'] & {
-      background-color: rgba(22, 110, 122, 0.55); // Modo Noche
-      color: #ffffff;
-    }
   }
 
   // Hover & Focus Interactions
@@ -237,8 +230,8 @@
   }
 
   &__title {
-    font-family: 'Pixelify Sans', cursive, monospace, sans-serif;
-    font-size: 6.4rem;
+    font-family: var(--font-title);
+    font-size: var(--font-size-h1);
     font-weight: 700;
     line-height: 1;
     margin: 0;
@@ -247,8 +240,8 @@
   }
 
   &__description {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 3.2rem;
+    font-family: var(--font-body);
+    font-size: var(--font-size-subtitle);
     font-weight: 500;
     font-style: italic;
     line-height: 1.2;
@@ -304,11 +297,11 @@
     }
 
     &__title {
-      font-size: 4.8rem;
+      font-size: var(--font-size-h2);
     }
 
     &__description {
-      font-size: 2.2rem;
+      font-size: var(--font-size-subtitle-lg);
     }
 
     &__tech {

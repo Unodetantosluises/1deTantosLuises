@@ -8,8 +8,8 @@
   overflow: hidden;
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: 'Pixelify Sans', cursive, monospace, sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: var(--font-title);
+  transition: var(--transition-theme);
 
   // Translucent Rounded Panel covering the canvas
   &__panel {
@@ -18,18 +18,14 @@
     bottom: 4.2%;
     left: 3.2%;
     right: 3.2%;
-    border-radius: 4rem;
-    background-color: rgba(252, 246, 96, 0.80); // Modo Día (#FCF660 @ 80%)
-    transition: background-color 0.3s ease;
+    border-radius: var(--radius-panel-desktop);
+    background-color: var(--panel-experience-bg);
+    transition: var(--transition-theme);
     z-index: 2;
     display: flex;
     flex-direction: column;
     overflow: hidden;
     padding: 3.5rem 6.5rem 3rem 6.5rem;
-
-    [data-theme='dark'] & {
-      background-color: rgba(84, 82, 20, 0.85); // Modo Noche (Oliva / Ámbar oscuro @ 85%)
-    }
   }
 
   // Header: Return Button pinned top-left

@@ -19,13 +19,9 @@
     left: 2.5%;
     right: 2.1%;
     border-radius: 2.4rem;
-    background-color: rgba(37, 36, 70, 0.90); // Day mode (#252446 @ 90%)
+    background-color: var(--panel-blog-bg);
     transition: background-color 0.3s ease;
     z-index: 2;
-
-    [data-theme='dark'] & {
-      background-color: rgba(32, 21, 51, 0.85); // Night mode (#201533 @ 85%)
-    }
   }
 
   // Header: Return Button + Title (Top-Left)

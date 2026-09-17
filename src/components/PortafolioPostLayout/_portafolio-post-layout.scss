@@ -1,3 +1,5 @@
+// _portafolio-post-layout.scss
+
 // Micro-transiciones de entrada (GPU-accelerated)
 @keyframes projectPanelEnter {
   0% {
@@ -40,8 +42,8 @@
   overflow: hidden;
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: 'Pixelify Sans', cursive, monospace, sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: var(--font-title);
+  transition: var(--transition-theme);
 
   // Translucent Rounded Cyan/Teal Panel
   &__panel {
@@ -50,20 +52,16 @@
     bottom: 4.2%;
     left: 3.2%;
     right: 3.2%;
-    border-radius: 4rem;
-    background-color: rgba(22, 110, 122, 0.75); // Modo Día
-    transition: background-color 0.3s ease;
+    border-radius: var(--radius-panel-desktop);
+    background-color: var(--panel-portfolio-bg);
+    transition: var(--transition-theme);
     z-index: 2;
     display: flex;
     flex-direction: column;
     overflow: hidden;
     padding: 3.5rem 6.5rem 3rem 6.5rem;
-    animation: projectPanelEnter 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: projectPanelEnter var(--duration-micro) var(--ease-retro) both;
     will-change: opacity, transform;
-
-    [data-theme='dark'] & {
-      background-color: rgba(10, 52, 58, 0.85); // Modo Noche
-    }
   }
 
   // Back Navigation
@@ -84,12 +82,12 @@
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
-    animation: projectHeaderEnter 0.28s cubic-bezier(0.16, 1, 0.3, 1) 0.03s both;
+    animation: projectHeaderEnter var(--duration-micro) var(--ease-retro) 0.03s both;
     will-change: opacity, transform;
 
     &__title {
-      font-family: 'Pixelify Sans', cursive, monospace, sans-serif;
-      font-size: 6.4rem;
+      font-family: var(--font-title);
+      font-size: var(--font-size-h1);
       font-weight: 700;
       line-height: 1;
       margin: 0;
@@ -101,8 +99,8 @@
     }
 
     &__subtitle {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 3.6rem;
+      font-family: var(--font-body);
+      font-size: var(--font-size-subtitle-lg);
       font-weight: 500;
       font-style: italic;
       line-height: 1.1;
@@ -121,7 +119,7 @@
     margin: 2.5rem auto 0 auto;
     flex: 1;
     min-height: 0;
-    animation: projectBodyEnter 0.3s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
+    animation: projectBodyEnter 0.3s var(--ease-retro) 0.08s both;
     will-change: opacity, transform;
   }
 
@@ -143,7 +141,7 @@
       height: 50rem;
       flex-shrink: 0;
       overflow: hidden;
-      border-radius: 0.8rem;
+      border-radius: var(--radius-sm);
 
       &-img {
         width: 100%;
@@ -155,8 +153,8 @@
 
     // Markdown / MDX typography canvas
     .markdown-content {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 3.2rem;
+      font-family: var(--font-body);
+      font-size: var(--font-size-body-lg);
       font-weight: 500;
       line-height: 1.45;
       color: var(--text-color);
@@ -172,7 +170,7 @@
       h2,
       h3,
       h4 {
-        font-family: 'Pixelify Sans', cursive, monospace, sans-serif;
+        font-family: var(--font-title);
         color: var(--text-color);
         margin: 1.5rem 0 0.5rem 0;
         line-height: 1.2;
@@ -188,8 +186,8 @@
       }
 
       code {
-        font-family: monospace;
-        background-color: rgba(0, 0, 0, 0.2);
+        font-family: var(--font-code);
+        background-color: var(--overlay-dark-subtle);
         padding: 0.2rem 0.6rem;
         border-radius: 0.4rem;
       }
@@ -219,8 +217,8 @@
     }
 
     &__label {
-      font-family: 'Pixelify Sans', cursive, monospace, sans-serif;
-      font-size: 3.2rem;
+      font-family: var(--font-title);
+      font-size: var(--font-size-h3);
       font-weight: 600;
       line-height: 1;
       margin: 0;
@@ -229,8 +227,8 @@
     }
 
     &__value {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.8rem;
+      font-family: var(--font-body);
+      font-size: var(--font-size-meta);
       font-weight: 600;
       line-height: 1.2;
       margin: 0;
@@ -266,8 +264,8 @@
     }
 
     &__link {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.8rem;
+      font-family: var(--font-body);
+      font-size: var(--font-size-meta);
       font-weight: 600;
       line-height: 1.2;
       color: var(--text-color);
@@ -292,7 +290,7 @@
       bottom: 2.5%;
       left: 3.5%;
       right: 3.8%;
-      border-radius: 2rem;
+      border-radius: var(--radius-panel-mobile);
       padding: 2.5rem 2rem 2.5rem 2rem;
     }
 
@@ -307,12 +305,12 @@
       gap: 0.6rem;
 
       &__title {
-        font-size: 4.4rem;
+        font-size: var(--font-size-h1);
         padding-bottom: 0.6rem;
       }
 
       &__subtitle {
-        font-size: 2.2rem;
+        font-size: var(--font-size-subtitle-lg);
       }
     }
 
@@ -342,11 +340,11 @@
       }
 
       &__label {
-        font-size: 2.4rem;
+        font-size: var(--font-size-h3);
       }
 
       &__value {
-        font-size: 2rem;
+        font-size: var(--font-size-meta);
       }
 
       &__tools-group {
@@ -359,7 +357,7 @@
       }
 
       &__link {
-        font-size: 2rem;
+        font-size: var(--font-size-meta);
       }
     }
 
@@ -377,11 +375,11 @@
 
       &__cover {
         height: 24rem;
-        border-radius: 0.8rem;
+        border-radius: var(--radius-sm);
       }
 
       .markdown-content {
-        font-size: 2rem;
+        font-size: var(--font-size-body-lg);
         line-height: 1.4;
         gap: 1.8rem;
       }

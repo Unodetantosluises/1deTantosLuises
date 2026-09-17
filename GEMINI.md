@@ -10,7 +10,7 @@
 
 - **Frontend:** React 18 + Vite.
 - **Routing:** React Router DOM (declarative routes in `src/App.jsx`).
-- **Styles:** Sass / SCSS (`_name.scss` files alongside each component/page).
+- **Styles:** Sass / SCSS (`_name.scss` files alongside each component/page) + Centralized Design Tokens (`src/styles/_theme.scss`).
 - **Semantics:** Clean and accessible HTML5, avoiding unnecessary divs.
 
 ## Project Structure & Architecture
