@@ -1,0 +1,342 @@
+// _portafolio-post-layout.scss
+
+.portfolio-post-page {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  aspect-ratio: 1732 / 1118;
+  overflow: hidden;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Pixelify Sans', cursive, monospace, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  // Translucent Rounded Cyan/Teal Panel
+  &__panel {
+    position: absolute;
+    top: 4.2%;
+    bottom: 4.2%;
+    left: 3.2%;
+    right: 3.2%;
+    border-radius: 4rem;
+    background-color: rgba(22, 110, 122, 0.75); // Modo Día
+    transition: background-color 0.3s ease;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 3.5rem 6.5rem 3rem 6.5rem;
+
+    [data-theme='dark'] & {
+      background-color: rgba(10, 52, 58, 0.85); // Modo Noche
+    }
+  }
+
+  // Back Navigation
+  &__nav {
+    position: absolute;
+    top: 3.5rem;
+    left: 3.5rem;
+    z-index: 10;
+  }
+
+  // Fixed Pinned Header per [DEV NOTE - PROJECT HEADER]
+  .project-header {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 139rem;
+    margin: 0 auto;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+
+    &__title {
+      font-family: 'Pixelify Sans', cursive, monospace, sans-serif;
+      font-size: 6.4rem;
+      font-weight: 700;
+      line-height: 1;
+      margin: 0;
+      color: var(--text-color);
+      letter-spacing: -0.01em;
+      border-bottom: 2px solid var(--text-color); // Línea CSS pura sin SVG
+      padding-bottom: 0.8rem;
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+
+    &__subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.6rem;
+      font-weight: 500;
+      font-style: italic;
+      line-height: 1.1;
+      margin: 0;
+      color: var(--text-color);
+      transition: color 0.3s ease;
+    }
+  }
+
+  // Main 2-Column Body Layout
+  &__body {
+    display: flex;
+    gap: 4rem;
+    width: 100%;
+    max-width: 139rem;
+    margin: 2.5rem auto 0 auto;
+    flex: 1;
+    min-height: 0;
+  }
+
+  // Left Column: Scrollable Case Study Article per [DEV NOTE - PORTFOLIO POST LAYOUT]
+  .portafolio-post-layout {
+    flex: 1;
+    min-height: 0;
+    max-width: 98rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 1.6rem;
+    padding-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+
+    &__cover {
+      width: 100%;
+      height: 50rem;
+      flex-shrink: 0;
+      overflow: hidden;
+      border-radius: 0.8rem;
+
+      &-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+    }
+
+    // Markdown / MDX typography canvas
+    .markdown-content {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.2rem;
+      font-weight: 500;
+      line-height: 1.45;
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      gap: 2.4rem;
+      word-break: break-word;
+
+      p {
+        margin: 0;
+      }
+
+      h2, h3, h4 {
+        font-family: 'Pixelify Sans', cursive, monospace, sans-serif;
+        color: var(--text-color);
+        margin: 1.5rem 0 0.5rem 0;
+        line-height: 1.2;
+      }
+
+      ul, ol {
+        padding-left: 3rem;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      code {
+        font-family: monospace;
+        background-color: rgba(0, 0, 0, 0.2);
+        padding: 0.2rem 0.6rem;
+        border-radius: 0.4rem;
+      }
+    }
+  }
+
+  // Right Column: Sidebar Metadata per [DEV NOTE - PROJECT DETAILS]
+  .project-details {
+    width: 35.6rem;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 0.5rem;
+
+    &__section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      padding: 0.8rem 0;
+
+      &--tools {
+        gap: 1.5rem;
+      }
+    }
+
+    &__label {
+      font-family: 'Pixelify Sans', cursive, monospace, sans-serif;
+      font-size: 3.2rem;
+      font-weight: 600;
+      line-height: 1;
+      margin: 0;
+      color: var(--text-color);
+      transition: color 0.3s ease;
+    }
+
+    &__value {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 600;
+      line-height: 1.2;
+      margin: 0;
+      color: var(--text-color);
+      transition: color 0.3s ease;
+    }
+
+    &__tools-group {
+      display: flex;
+      align-items: center;
+      gap: 4rem;
+    }
+
+    &__tool-icon {
+      width: 5.5rem;
+      height: 5rem;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+    }
+
+    &__tool-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    &__link {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--text-color);
+      text-decoration: none;
+      word-break: break-all;
+      transition: opacity 0.2s ease, color 0.3s ease;
+
+      &:hover,
+      &:focus-visible {
+        opacity: 0.75;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // Mobile Responsiveness
+  @media (max-width: 768px) {
+    aspect-ratio: 720 / 1600;
+
+    &__panel {
+      top: 2.5%;
+      bottom: 2.5%;
+      left: 3.5%;
+      right: 3.8%;
+      border-radius: 2rem;
+      padding: 2.5rem 2rem 2.5rem 2rem;
+    }
+
+    &__nav {
+      top: 2.5rem;
+      left: 2.5rem;
+    }
+
+    .project-header {
+      max-width: 46.9rem;
+      margin: 6.5rem 0 0 1rem;
+      gap: 0.6rem;
+
+      &__title {
+        font-size: 4.4rem;
+        padding-bottom: 0.6rem;
+      }
+
+      &__subtitle {
+        font-size: 2.2rem;
+      }
+    }
+
+    &__body {
+      flex-direction: column;
+      margin-top: 1.5rem;
+      gap: 2.5rem;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding-right: 0.8rem;
+      padding-bottom: 2rem;
+    }
+
+    .project-details {
+      width: 100%;
+      max-width: 48.8rem;
+      margin: 0 auto;
+      flex-shrink: 0;
+      gap: 1.2rem;
+      overflow-y: visible;
+
+      &__section {
+        padding: 0.4rem 0;
+        gap: 0.4rem;
+      }
+
+      &__label {
+        font-size: 2.6rem;
+      }
+
+      &__value {
+        font-size: 2.2rem;
+      }
+
+      &__tools-group {
+        gap: 3rem;
+      }
+
+      &__tool-icon {
+        width: 4.8rem;
+        height: 4.4rem;
+      }
+
+      &__link {
+        font-size: 2.2rem;
+      }
+    }
+
+    .portafolio-post-layout {
+      width: 100%;
+      max-width: 55rem;
+      margin: 0 auto;
+      overflow-y: visible;
+      padding-right: 0;
+      gap: 2rem;
+
+      &__cover {
+        height: 28rem;
+      }
+
+      .markdown-content {
+        font-size: 2rem;
+        line-height: 1.4;
+        gap: 1.8rem;
+      }
+    }
+  }
+}

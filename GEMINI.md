@@ -17,7 +17,8 @@
 
 - **Pages (`src/pages/`):**
   - `/` -> `Home/Home.jsx` (Navigation canvas with folders and intro).
-  - `/portafolio` -> `Portfolio/Portfolio.jsx`
+  - `/portafolio` -> `Portfolio/Portfolio.jsx` (Interactive project showcase with `PortfolioCard.jsx`, smooth translucent hover overlays, and dynamic tech stack badges).
+  - `/portafolio/:slug` -> `PortfolioProject/PortfolioProject.jsx` (Dynamic project case study view with Markdown typography, metadata sidebar, and retro scrollbar).
   - `/experiencia` -> `Experience/Experience.jsx`
   - `/blog` -> `Blog/Blog.jsx`
   - `/blog/posts` -> `BlogPosts/BlogPosts.jsx` (Complete blog archives with search and dynamic pagination).
@@ -27,6 +28,7 @@
 - **Shared Components (`src/components/`):**
   - `BackgroundGrid`: Exact non-uniform vector grid and pixel blocks background (preserved on every page).
   - `BlogPostLayout`: Semantic MDX/Markdown post wrapper (`<article className="blog-post">`) with pinned `<hgroup>`, pure CSS border separator on `<h1>`, and retro 8px scrollbar.
+  - `PortafolioPostLayout`: Semantic MDX/Markdown project case study wrapper with pinned `<header className="project-header">`, pure CSS border separator on `<h1>`, `<aside className="project-details">` metadata sidebar, and retro 8px scrollbar.
   - `Controls`: Universal controls placed on the top-right corner (Day/Night theme toggle and Home navigation button).
   - `Layout`: Top-level wrapper for consistent canvas dimensions and responsiveness.
   - `ReturnButton`: Reusable back button with Day/Night contrast icons and history navigation for subpages.

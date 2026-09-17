@@ -9,6 +9,7 @@ import BlogPosts from './pages/BlogPosts/BlogPosts';
 import About from './pages/About/About';
 import Contact from './pages/Contact/Contact';
 import BlogPost from './pages/BlogPost/BlogPost';
+import PortfolioProject from './pages/PortfolioProject/PortfolioProject';
 
 export function App() {
   return (
@@ -17,6 +18,8 @@ export function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/portafolio" element={<Portfolio />} />
+          <Route path="/portafolio/proyectos/:slug" element={<PortfolioProject />} />
+          <Route path="/portafolio/:slug" element={<PortfolioProject />} />
           <Route path="/experiencia" element={<Experience />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/posts" element={<BlogPosts />} />
