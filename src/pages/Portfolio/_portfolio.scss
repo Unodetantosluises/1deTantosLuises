@@ -44,7 +44,7 @@
   .portfolio-header {
     flex-shrink: 0;
     width: 100%;
-    max-width: 139.5rem;
+    max-width: 150rem;
     margin: 0 auto;
     z-index: 5;
     display: flex;
@@ -115,11 +115,11 @@
       gap: 0.8rem;
 
       &__title {
-        font-size: 4.8rem;
+        font-size: 8rem;
       }
 
       &__subtitle {
-        font-size: 1.8rem;
+        font-size: 2.15rem;
         line-height: 1.35;
       }
     }

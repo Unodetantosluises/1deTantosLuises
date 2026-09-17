@@ -8,7 +8,7 @@ export const EXPERIENCES = [
     id: 1,
     company: 'ASEA - Agencia de Seguridad Energía y Ambiente',
     role: 'Ingeniero de Software',
-    period: 'Octubre 2025 - Mayo 2026',
+    period: 'Octubre 2025 - Julio 2026',
     icons: ['jobBuilding', 'database', 'testing', 'angular'],
     bullets: [
       'Implementé prácticas de CI/CD dentro de Azure para el despliegue de ambientes de desarrollo y pruebas para mejorar el desarrollo e implementación de nuevas funciones y mejoras de rendimiento dentro de la plataforma.',

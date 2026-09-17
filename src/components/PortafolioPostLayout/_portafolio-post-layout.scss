@@ -44,7 +44,7 @@
   .project-header {
     flex-shrink: 0;
     width: 100%;
-    max-width: 139rem;
+    max-width: 150rem;
     margin: 0 auto;
     z-index: 5;
     display: flex;
@@ -131,14 +131,17 @@
         margin: 0;
       }
 
-      h2, h3, h4 {
+      h2,
+      h3,
+      h4 {
         font-family: 'Pixelify Sans', cursive, monospace, sans-serif;
         color: var(--text-color);
         margin: 1.5rem 0 0.5rem 0;
         line-height: 1.2;
       }
 
-      ul, ol {
+      ul,
+      ol {
         padding-left: 3rem;
         margin: 0;
         display: flex;
