@@ -1,4 +1,25 @@
-// _portfolio.scss
+// Micro-transiciones de entrada (GPU-accelerated)
+@keyframes portfolioPanelEnter {
+  0% {
+    opacity: 0;
+    transform: scale(0.992);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes portfolioCardsEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .portfolio {
   position: relative;
@@ -26,6 +47,8 @@
     flex-direction: column;
     overflow: hidden;
     padding: 3.5rem 6.5rem 3rem 6.5rem;
+    animation: portfolioPanelEnter 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+    will-change: opacity, transform;
 
     [data-theme='dark'] & {
       background-color: rgba(10, 52, 58, 0.85); // Modo Noche (#0A343A @ 85%)
@@ -89,6 +112,8 @@
     flex-direction: column;
     gap: 3rem;
     outline: none;
+    animation: portfolioCardsEnter 0.32s cubic-bezier(0.16, 1, 0.3, 1) 0.05s both;
+    will-change: opacity, transform;
   }
 
   // Mobile Responsiveness
@@ -296,5 +321,14 @@
         height: 4.5rem;
       }
     }
+  }
+}
+
+// Accessibility: Prefers Reduced Motion
+@media (prefers-reduced-motion: reduce) {
+  .portfolio__panel,
+  .portfolio__cards-container {
+    animation: none !important;
+    transform: none !important;
   }
 }

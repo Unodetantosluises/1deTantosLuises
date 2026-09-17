@@ -1,4 +1,36 @@
-// _portafolio-post-layout.scss
+// Micro-transiciones de entrada (GPU-accelerated)
+@keyframes projectPanelEnter {
+  0% {
+    opacity: 0;
+    transform: scale(0.992);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes projectHeaderEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes projectBodyEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .portfolio-post-page {
   position: relative;
@@ -26,6 +58,8 @@
     flex-direction: column;
     overflow: hidden;
     padding: 3.5rem 6.5rem 3rem 6.5rem;
+    animation: projectPanelEnter 0.28s cubic-bezier(0.16, 1, 0.3, 1) both;
+    will-change: opacity, transform;
 
     [data-theme='dark'] & {
       background-color: rgba(10, 52, 58, 0.85); // Modo Noche
@@ -50,6 +84,8 @@
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
+    animation: projectHeaderEnter 0.28s cubic-bezier(0.16, 1, 0.3, 1) 0.03s both;
+    will-change: opacity, transform;
 
     &__title {
       font-family: 'Pixelify Sans', cursive, monospace, sans-serif;
@@ -85,6 +121,8 @@
     margin: 2.5rem auto 0 auto;
     flex: 1;
     min-height: 0;
+    animation: projectBodyEnter 0.3s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both;
+    will-change: opacity, transform;
   }
 
   // Left Column: Scrollable Case Study Article per [DEV NOTE - PORTFOLIO POST LAYOUT]
@@ -348,5 +386,15 @@
         gap: 1.8rem;
       }
     }
+  }
+}
+
+// Accessibility: Prefers Reduced Motion
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-post-page__panel,
+  .portfolio-post-page .project-header,
+  .portfolio-post-page__body {
+    animation: none !important;
+    transform: none !important;
   }
 }
