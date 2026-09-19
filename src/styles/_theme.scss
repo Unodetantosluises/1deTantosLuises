@@ -27,7 +27,7 @@
   // 3. Formas, Radios y Bordes (Geometry & Radii)
   // ==========================================
   --radius-panel-desktop: 4rem;
-  --radius-panel-mobile: 2rem;
+  --radius-panel-mobile: 1.8rem;
   --radius-card: 2rem;
   --radius-pill: 2.8rem;
   --radius-sm: 0.8rem;
@@ -65,7 +65,7 @@
   --experience-download-color: #ffffff;
 
   // Blog & BlogPosts (Azul / Púrpura)
-  --panel-blog-bg: rgba(37, 36, 70, 0.90);
+  --panel-blog-bg: rgba(32, 21, 51, 0.55);
   --blog-pill-bg: rgba(138, 56, 245, 0.70);
   --blog-card-overlay-bg: rgba(217, 217, 217, 0.35);
 
@@ -74,6 +74,14 @@
 
   // Contacto (Rosa / Magenta)
   --panel-contact-bg: rgba(238, 138, 222, 0.80);
+  --contact-input-bg: rgba(217, 217, 217, 0.35);
+  --contact-input-border: #000000;
+  --contact-input-color: #000000;
+  --contact-input-placeholder: rgba(0, 0, 0, 0.65);
+  --contact-btn-bg: #ffffff;
+  --contact-btn-color: #000000;
+  --contact-btn-border: #000000;
+  --contact-divider: rgba(0, 0, 0, 0.35);
 
   // Overlays comunes
   --overlay-dark-subtle: rgba(0, 0, 0, 0.20);
@@ -111,6 +119,14 @@
 
   // Contacto
   --panel-contact-bg: rgba(226, 36, 196, 0.55);
+  --contact-input-bg: rgba(0, 0, 0, 0.45);
+  --contact-input-border: #ffffff;
+  --contact-input-color: #ffffff;
+  --contact-input-placeholder: rgba(255, 255, 255, 0.70);
+  --contact-btn-bg: #000000;
+  --contact-btn-color: #ffffff;
+  --contact-btn-border: #ffffff;
+  --contact-divider: rgba(255, 255, 255, 0.35);
 }
 
 // ==========================================
