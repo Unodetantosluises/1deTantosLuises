@@ -8,12 +8,12 @@ import { useTheme } from '../../context/ThemeContext';
 import blogCoverImage from '../../images/blog_cover_antigravity.png';
 import readBlogDay from '../../assets/read-blog-day.svg';
 import readBlogNight from '../../assets/read-blog-night.svg';
-import { getRecentBlogPosts } from '../../data/blogPosts';
+import { getBlogPosts } from '../../utils/contentResolver';
 import './_blog.scss';
 
 export const Blog = () => {
   const { isDarkMode } = useTheme();
-  const recentPosts = useMemo(() => getRecentBlogPosts(3), []);
+  const recentPosts = useMemo(() => getBlogPosts().slice(0, 3), []);
 
   return (
     <Layout>
@@ -59,7 +59,7 @@ export const Blog = () => {
                         to={`/blog?tag=${tag.replace('#', '').toLowerCase()}`}
                         className="blog-card__tag"
                       >
-                        {tag}
+                        {tag.startsWith('#') ? tag : `#${tag}`}
                       </Link>
                     ))}
                   </div>

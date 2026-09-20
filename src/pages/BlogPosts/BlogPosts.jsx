@@ -5,7 +5,7 @@ import BackgroundGrid from '../../components/BackgroundGrid/BackgroundGrid';
 import Controls from '../../components/Controls/Controls';
 import ReturnButton from '../../components/ReturnButton/ReturnButton';
 import { useTheme } from '../../context/ThemeContext';
-import { BLOG_POSTS } from '../../data/blogPosts';
+import { getBlogPosts } from '../../utils/contentResolver';
 import searchIconDark from '../../assets/search-icon-dark.svg';
 import searchIconLight from '../../assets/search-icon-light.svg';
 import './_blog-posts.scss';
@@ -17,6 +17,8 @@ export const BlogPosts = () => {
   const [isMobile, setIsMobile] = useState(
     typeof window !== 'undefined' ? window.innerWidth < 768 : false
   );
+
+  const allPosts = useMemo(() => getBlogPosts(), []);
 
   // Responsive limit: Desktop = 6 items (2x3), Mobile = 3 items
   useEffect(() => {
@@ -31,15 +33,15 @@ export const BlogPosts = () => {
 
   // Real-time filtering by title, subtitle, or tags
   const filteredPosts = useMemo(() => {
-    if (!searchTerm.trim()) return BLOG_POSTS;
+    if (!searchTerm.trim()) return allPosts;
     const term = searchTerm.toLowerCase().trim();
-    return BLOG_POSTS.filter(
+    return allPosts.filter(
       (post) =>
-        post.title.toLowerCase().includes(term) ||
-        post.subtitle.toLowerCase().includes(term) ||
-        post.tags.some((tag) => tag.toLowerCase().includes(term))
+        (post.title && post.title.toLowerCase().includes(term)) ||
+        (post.subtitle && post.subtitle.toLowerCase().includes(term)) ||
+        (post.tags && post.tags.some((tag) => tag.toLowerCase().includes(term)))
     );
-  }, [searchTerm]);
+  }, [allPosts, searchTerm]);
 
   const totalPages = Math.max(1, Math.ceil(filteredPosts.length / itemsPerPage));
 

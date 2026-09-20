@@ -43,14 +43,19 @@ const parseContentEntry = (path, module) => {
   const { slug, section } = extractMetadataFromPath(path);
   const frontmatter = module.frontmatter || {};
   const Component = module.default;
+  const image = frontmatter.coverImage || frontmatter.image || '/og-cover.png';
 
   return {
+    id: frontmatter.id || slug,
     slug,
     section,
     Component,
     default: Component,
     content: Component,
+    image,
+    coverImage: image,
     ...frontmatter,
+    tags: Array.isArray(frontmatter.tags) ? frontmatter.tags : [],
   };
 };
 

@@ -19,9 +19,13 @@ Pero vamos por partes, ¿Cómo integramos el MCP de Figma a Antigravity?
 
 ## Instalar el MCP de Figma en Antigravity
 Suponiendo que ya tenemos instalado Antigravity IDE(puedes descargarlo [aquí](https://antigravity.google/download#antigravity-ide)), ir a la ventana de agente(o presionando **ctrl**+**alt**+**b**).
+
 ![Antigravity Window](../assets/blog/agente-window-antigravity.png)
+
 Y presionamos los **tres puntos** que se encuentran en la esquina superior derecha, y seleccionamos la opción **MCP Servers**.
+
 ![Antigravity Window MCP](../assets/blog/agente-window-mcp-antigravity.png)
+
 Esto nos mostrara todos los MCP disponibles y que son soportados por Antigravity IDE, pueden existir MCPs que solo sean soportados por Antigravity IDE o Antigravity CLI así que siempre hay que asegurarse de que la herramienta que vayamos a usar sea compatible, en la barra de búsqueda escribimos **Figma Dev Mode MCP**.
 
 Esto nos llevara a la documentación especifica **Figma Dev Mode** donde encontraremos la pestaña de configuración y herramientas, pero antes de que cierres esta entrada de mi blog tengo que decirte que la documentación oficial esta un tanto desactualizada, así que con tener instalado el MCP en antigravity es suficiente para esta primera parte.
@@ -32,13 +36,21 @@ Para hacer uso del MDP de figma es necesario que tengamos instalado la aplicaci�
 **Nota:** para hacer uso de la aplicación de escritorio de figma es necesario ser usuario Pro de figma, ya que no hay forma de hacer uso del MCP desde el navegador.
 
 Una vez instalado basta con abrir cualquier archivo **Figma Design**, hacer clic derecho en cualquier área del lienzo y seleccionar la opción **Actions...**, o presionar **ctrl** + **k**.
+
 ![Figma MCP Untitled](../assets/blog/figma-mcp-untitled.png)
+
 En la barra de búsqueda basta con que escribamos "**Enable**" para que aparezca la opción "**Enable desktop MCP Server**" basta con que le demos clic para activar el MCP.
+
 ![Figma MCP Actions](../assets/blog/figma-mcp-actions.png)
+
 Si no hay ningún error o problema veremos esta notificación en la aplicación de escritorio
+
 ![Figma MCP Enabled](../assets/blog/figma-mcp-enabled.png)
+
 ¡Y listo! Ahora basta con regresar a Antigravity IDE, dar click en el botón **Refresh** y ahora en la pestaña de **Tools** veremos todas la herramientas que vienen integradas con el MCP de Figma.
+
 ![Antigravity MCP Tools](../assets/blog/antigravity-mcp-enabled.png)
+
 ¡Ahora ya estamos listos para llevar nuestro diseño a la realidad!
 ## Figma + Antigravity
 Se que en la primera parte de esta entrada dije que podríamos usar el prompt *"¿Ves la información de mi archivo?"* y aunque es un prompt valido para validar la conexión entre Figma y Antigravity, e incluso saber si nuestras paginas o componentes están bien diseñados.
@@ -64,11 +76,17 @@ Lo que exponencialmente se traduce a que ese diseño que tenias arrumbado u olvi
 Como en cualquier diseño complejo o simplemente un diseño donde queremos dejar en claro lo que necesitamos, como un componente interactúa con el resto de elementos o lo que queremos transmitirle al usuario, un miembro de nuestro equipo, un cliente o un agente de IA, agregar notas a nuestros componente no puede simplificar mucho las cosas.
 
 Para agregar estas notas basta con seleccionar nuestro componente, dar clic el botón **Component Configuration**, esta opción se encuentra en la parte superior derecha y esta al lado de los tres puntos de mas acciones.
+
 ![figma-component-configuration](../assets/blog/figma-component-configuration.png)
+
 Esto abrirá la ventana de configuración de componente, en la cual agregaremos la nota para nuestro agente o para nuestros compañeros de equipo.
+
 ![figma-component-configuration-detailed](../assets/blog/figma-component-configuration-detailed.png)
+
 Pongámoslo en practica, esta sección yo diseñe este hermoso componente con Charli XCX en el, tiene una versión de día y noche junto con una pequeña animación de hover por lo que para mi es muy importante que antigravity respete mi diseño, estética y su funcionamiento.
+
 ![blog-mini-card-charli-xcx](../assets/blog/blog-mini-card-charli-xcx.png)
+
 Así que para asegurarme de que antigravity respete mi diseño y lo traslade a código sin desperdiciar tokens o necesitar edición, le agrego esta nota .
 ```
 [DEV NOTE PARA ANTIGRAVITY - BLOG MINI CARD]
