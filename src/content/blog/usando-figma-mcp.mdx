@@ -1,0 +1,125 @@
+---
+title: Trabajando con Figma y Antigravity
+subtitle: Una nueva forma de Diseñar e Iterar.
+date: 2026-09-20
+tags:
+  - Figma
+  - Antigravity
+  - MCP
+coverImage: /og-cover.png
+---
+
+Con todas las herramientas con las que hemos sido bombardeados en los últimos años, el concepto de **[MCP](https://antigravity.google/docs/mcp/)**(*Model Context Protocol*) fue uno de los que más me interesó y que parecía más prometedores, en palabras simples y burdas, un MCP te permite darle contexto de tu información a un agente de IA básicamente no tienes que preocuparte por darle contexto o repetirte con tu agente de IA una y otra vez, basta con hacer las cosas bien en tu herramienta, buscar que haya un MCP para dicha herramienta y puedes lanzar un prompt a tu agente "*¿Ves la información de mi archivo?*" parar iniciar a trabajar en el siguiente paso de tu proyecto.
+
+Bueno, tal vez el prompt "*¿Ves la información de mi archivo?*" no es la mejor forma de probar un MCP pero así fue como inicie mi camino de pasar mi diseño de Figma a un Sitio web.
+
+Pero vamos por partes, ¿Cómo integramos el MCP de Figma a Antigravity?
+
+**Nota:** EL MCP de figma puede ser integrado a múltiples agentes de IA como Claude y Codex, pero en este articulo me enfoco de forma explicita en [Antigravity IDE](https://antigravity.google/product/antigravity-ide) de Google.
+
+## Instalar el MCP de Figma en Antigravity
+Suponiendo que ya tenemos instalado Antigravity IDE(puedes descargarlo [aquí](https://antigravity.google/download#antigravity-ide)), ir a la ventana de agente(o presionando **ctrl**+**alt**+**b**).
+![Antigravity Window](../assets/blog/agente-window-antigravity.png)
+Y presionamos los **tres puntos** que se encuentran en la esquina superior derecha, y seleccionamos la opción **MCP Servers**.
+![Antigravity Window MCP](../assets/blog/agente-window-mcp-antigravity.png)
+Esto nos mostrara todos los MCP disponibles y que son soportados por Antigravity IDE, pueden existir MCPs que solo sean soportados por Antigravity IDE o Antigravity CLI así que siempre hay que asegurarse de que la herramienta que vayamos a usar sea compatible, en la barra de búsqueda escribimos **Figma Dev Mode MCP**.
+
+Esto nos llevara a la documentación especifica **Figma Dev Mode** donde encontraremos la pestaña de configuración y herramientas, pero antes de que cierres esta entrada de mi blog tengo que decirte que la documentación oficial esta un tanto desactualizada, así que con tener instalado el MCP en antigravity es suficiente para esta primera parte.
+![Figma MCP Antigravity](../assets/blog/figma-mcp-antigravity.png)
+## Activar el MCP de Figma
+Para hacer uso del MDP de figma es necesario que tengamos instalado la aplicación de escritorio de figma, descárgala [aqui](https://www.figma.com/es-es/downloads/).
+
+**Nota:** para hacer uso de la aplicación de escritorio de figma es necesario ser usuario Pro de figma, ya que no hay forma de hacer uso del MCP desde el navegador.
+
+Una vez instalado basta con abrir cualquier archivo **Figma Design**, hacer clic derecho en cualquier área del lienzo y seleccionar la opción **Actions...**, o presionar **ctrl** + **k**.
+![Figma MCP Untitled](../assets/blog/figma-mcp-untitled.png)
+En la barra de búsqueda basta con que escribamos "**Enable**" para que aparezca la opción "**Enable desktop MCP Server**" basta con que le demos clic para activar el MCP.
+![Figma MCP Actions](../assets/blog/figma-mcp-actions.png)
+Si no hay ningún error o problema veremos esta notificación en la aplicación de escritorio
+![Figma MCP Enabled](../assets/blog/figma-mcp-enabled.png)
+¡Y listo! Ahora basta con regresar a Antigravity IDE, dar click en el botón **Refresh** y ahora en la pestaña de **Tools** veremos todas la herramientas que vienen integradas con el MCP de Figma.
+![Antigravity MCP Tools](../assets/blog/antigravity-mcp-enabled.png)
+¡Ahora ya estamos listos para llevar nuestro diseño a la realidad!
+## Figma + Antigravity
+Se que en la primera parte de esta entrada dije que podríamos usar el prompt *"¿Ves la información de mi archivo?"* y aunque es un prompt valido para validar la conexión entre Figma y Antigravity, e incluso saber si nuestras paginas o componentes están bien diseñados.
+
+Mejor intentémoslo con un prompt bien redactado y eficiente:
+```
+Actúa como un Frontend Developer Senior. 
+Necesito que inspecciones el Frame llamado **NOMBRE-DEL-FRAME** en el archivo de Figma conectado.
+
+Tarea: Genera el código para el componente de vista **FRAME.jsx**  y su archivo de estilos **_FRAME.scss**.
+Stack: React (componentes funcionales), SCSS.
+
+Lee e implementa estrictamente las instrucciones contenidas en la capa de texto [DEV NOTE PARA ANTIGRAVITY - **NOMBRE DE TU FRAME**].
+
+Por favor, devuelve únicamente el código estructurado y listo para producción. Omite las explicaciones redundantes de cómo funciona React o CSS.
+```
+¡Y listo! con este prompt en menos de un minuto obtendremos todo el código de nuestro frame o pagina, junto con sus versiones móviles,  sus versiones de día y noche(mientras lo hayamos diseñado, obviamente).
+
+Lo que exponencialmente se traduce a que ese diseño que tenias arrumbado u olvidado ahora lo puedes retomar y terminar en mucho menos tiempo.
+
+**¡Pero alto!** si leíste mi prompt anterior tal vez te diste cuenta de `[DEV NOTE PARA ANTRIGRAVITY - ]` y te preguntaste **¿Qué es eso?**
+### Con Cariño para Antigravity
+Como en cualquier diseño complejo o simplemente un diseño donde queremos dejar en claro lo que necesitamos, como un componente interactúa con el resto de elementos o lo que queremos transmitirle al usuario, un miembro de nuestro equipo, un cliente o un agente de IA, agregar notas a nuestros componente no puede simplificar mucho las cosas.
+
+Para agregar estas notas basta con seleccionar nuestro componente, dar clic el botón **Component Configuration**, esta opción se encuentra en la parte superior derecha y esta al lado de los tres puntos de mas acciones.
+![figma-component-configuration](../assets/blog/figma-component-configuration.png)
+Esto abrirá la ventana de configuración de componente, en la cual agregaremos la nota para nuestro agente o para nuestros compañeros de equipo.
+![figma-component-configuration-detailed](../assets/blog/figma-component-configuration-detailed.png)
+Pongámoslo en practica, esta sección yo diseñe este hermoso componente con Charli XCX en el, tiene una versión de día y noche junto con una pequeña animación de hover por lo que para mi es muy importante que antigravity respete mi diseño, estética y su funcionamiento.
+![blog-mini-card-charli-xcx](../assets/blog/blog-mini-card-charli-xcx.png)
+Así que para asegurarme de que antigravity respete mi diseño y lo traslade a código sin desperdiciar tokens o necesitar edición, le agrego esta nota .
+```
+[DEV NOTE PARA ANTIGRAVITY - BLOG MINI CARD]
+- **Estructura HTML:** `<article className="blog-mini-card">` que contiene la imagen `<img>` y un `<div className="card-overlay">` para el texto.
+- **Layout (CSS):** La tarjeta padre debe tener `position: relative; overflow: hidden;`. El `.card-overlay` debe tener `position: absolute; inset: 0;` con fondo translúcido (usar `rgba` o variables con opacidad).
+- **Interacción Hover:** El `.card-overlay` debe iniciar con `opacity: 0;` y `transition: opacity 0.3s ease;`. Al hacer `:hover` o `:focus-within` en el `<article>`, cambiar a `opacity: 1;`.
+- **Accesibilidad:** No usar `display: none` para ocultar el overlay, usar únicamente `opacity` para que los lectores de pantalla y buscadores puedan leer el título y la fecha desde el DOM.
+```
+Este pequeño detalle es la cereza sobre nuestros diseños, asegurándose de que todo quede exactamente como lo visualizamos y diseñamos.
+### Afinando Antigravity
+Ya por último y para mantenernos en tendencia con las modas de desarrollo con IA(aunque ya es algo como de hace seis meses, ¿o mas?) las [SKILS](https://antigravity.google/docs/skills/) de antigravity, estos son pequeñas modificaciones que podemos agregar a nuestro proyecto para nuestros flujos de trabajo que nos facitilitan la interaccion y el desarrollo,
+
+Le puedes pedir a tu agente de IA que te desarrolle una **SKILL** en base a los mensajes que has tenido durante la sesion o tu mismo redactarlo, aqui te comparto una de ejemplo:
+```
+---
+name: figma-dev-notes-parser
+description: Workflow for detecting, parsing, and implementing explicit Figma developer notes (e.g., [DEV NOTE ...], routing instructions, data constraints, and state specifications) before generating code.
+---
+# Figma Developer Notes & Specifications Workflow
+Use this workflow whenever inspecting Figma frames or screenshots that contain developer annotations, sticky notes, or explicit text layers intended for engineering handoff.
+
+## Workflow Steps
+1. **Layer & Annotation Inspection:**
+   - Proactively inspect text layers and frame annotations looking for developer-targeted tags such as:
+     - `[DEV NOTE ...]`
+     - `[ROUTING ...]` / `[NAVIGATION ...]`
+     - `[DATA NOTE ...]` / `[CONSTRAINTS ...]`
+     - `[STATE ...]` / `[INTERACTION ...]`
+   - Never overlook or ignore text layers containing instructional prefixes.
+
+2. **Specification Extraction & Categorization:**
+   - **Routing & Navigation:**
+     - Identify destination paths, URL query parameters (e.g., `/blog?tag=ux`), and back button targets.
+     - Determine whether links are internal (`react-router-dom` `<Link>`) or external (`<a>`).
+   - **Data Contracts & Constraints:**
+     - Identify display limits (e.g., "show only the 3 most recent posts", "paginate 6 items per page").
+     - Extract date formats (`DD-MM-YYYY`), sorting rules (descending timestamps), and entity models.
+   - **Interactive States & Edge Cases:**
+     - Note hover/focus states (e.g., overlays with transitions, focus rings).
+     - Extract empty state guidelines (e.g., "No results found" search feedback).
+   - **Theme Specifics:**
+     - Identify Day vs. Night asset mappings (e.g., light/dark icons, theme-based SVG switches).
+
+3. **Requirement Validation:**
+   - Treat developer notes as binding functional specifications that accompany the visual design.
+   - If an instruction in a developer note appears ambiguous or conflicts with visual positioning, clarify with the user before assuming behavior.
+
+4. **Implementation & Verification:**
+   - Implement data logic in centralized modules (`src/data/` or custom hooks) rather than hardcoding in JSX.
+   - Ensure the rendered output satisfies both visual fidelity and the explicit functional rules defined in the note.
+```
+Como puedes leer esta es muy especifica a mi flujo de trabajo y al proyecto que estaba realizando(!este sitio web¡) por lo que tu SKILL será muy distinta, con mas o menos reglas pero siempre son ese apoyo adicional para llevar esa idea que tienes en mente.
+
+**¡FELIZ DESARROLLO!**
