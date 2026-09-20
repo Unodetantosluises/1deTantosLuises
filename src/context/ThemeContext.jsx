@@ -13,6 +13,16 @@ export const ThemeProvider = ({ children }) => {
     // Update data-theme attribute on root html element
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('app-theme', theme);
+
+    // Synchronize mobile browser status bar theme-color dynamically
+    const themeColor = theme === 'dark' ? '#000000' : '#ffffff';
+    let metaTheme = document.querySelector("meta[name='theme-color']:not([media])");
+    if (!metaTheme) {
+      metaTheme = document.createElement('meta');
+      metaTheme.setAttribute('name', 'theme-color');
+      document.head.appendChild(metaTheme);
+    }
+    metaTheme.setAttribute('content', themeColor);
   }, [theme]);
 
   const toggleTheme = () => {
